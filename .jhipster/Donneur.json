@@ -1,0 +1,67 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627112714",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "donneur",
+  "fields": [
+    {
+      "fieldName": "typeDonneur",
+      "fieldType": "TypeDonneur",
+      "fieldValues": "ONG,ETAT,ENTREPRISE,ASSOCIATION,AUTRES"
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "adresse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tel1",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "ville",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Donneur",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "don",
+      "otherEntityRelationshipName": "donneur",
+      "relationshipName": "don",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "organiteur",
+      "otherEntityName": "donSang",
+      "otherEntityRelationshipName": "donneur",
+      "relationshipName": "donSang",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,436 @@
+application {
+  config {
+    baseName projetCommunale,
+    applicationType monolith,
+    packageName agir.gouv.sn,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    devDatabaseType mysql,
+    databaseType sql,
+    clientFramework angularX,
+    buildTool maven,
+    nativeLanguage fr,
+    serverPort 8888 
+  }
+  entities *
+}
+
+// Activités sportives communales
+entity Equipe {
+	nomEquipe String
+    dateCreation LocalDate
+    logo ImageBlob
+}
+entity  TypeSport {
+ sport Sport
+}
+enum Sport {
+FOOTBALL, BASKET, ARTS_MARTIAUX
+}
+
+entity Club {
+	nomClub String
+    dateCreation LocalDate
+    logo ImageBlob
+    discipline DisciplineClub
+}
+enum DisciplineClub {
+TAEKWONDO, KARATE, BOXE
+}
+entity Joueur {
+    nomJoueur String
+    prenomJoueur String
+    dateNaisJoueur LocalDate
+    lieuNaisJoueur String
+    posteJoueur Poste
+    photoJoueur ImageBlob
+}
+enum Poste {
+ATTAQUANT, DEFENSEUR, MILIEU_TERRAIN, GARDIEN
+}
+entity Combattant {
+    nomCombattant  String
+    prenomCombattant  String
+    dateNaisCombattant  LocalDate
+    lieuNaisCombattant  String
+    photoCombattant  ImageBlob
+}
+
+entity Quartier {
+nomQuartier String 
+}
+entity ArchiveSport {
+annee LocalDate
+}
+entity Match {
+dateMatch Instant
+lieuMatch String
+scoreMatch Integer
+}
+entity Competition {
+dateCompetition Instant
+lieuCompetition String
+ discipline DisciplineClub
+}
+entity Vainqueur {
+prix Double
+}
+relationship OneToMany {
+Quartier to Equipe{Quartier(nomQuartier)}
+Quartier to Club{Quartier(nomQuartier)}
+Equipe to Joueur{Equipe(nomEquipe)}
+Club to Combattant{Club(nomClub)}
+Competition to Vainqueur{Competition(discipline)}
+Combattant to Vainqueur{Combattant(nomCombattant )}
+}
+relationship OneToOne{
+Equipe{TypeSport(sport)} to TypeSport
+Club{TypeSport(sport)} to TypeSport
+}
+relationship OneToMany{
+Equipe to Match{Equipe(nomEquipe)}
+Club to Competition{Club(nomClub)} 
+Equipe{archve} to ArchiveSport{Equipe(nomEquipe)}
+Club{archve} to ArchiveSport{Club(nomClub)}  
+}
+
+//-	Activités sociales communales
+entity Don {
+typeDon TypeDon
+montant Long
+description String
+}
+enum TypeDon{
+Ravitament,
+Fourniture,
+Argent
+}
+
+entity Donneur {
+typeDonneur TypeDonneur
+prenom String
+nom String required
+email String unique
+adresse String
+tel1 String unique
+ville String
+description TextBlob
+}
+
+enum TypeDonneur{
+ONG,
+ETAT,
+ENTREPRISE,
+ASSOCIATION,
+AUTRES
+}
+
+entity Beneficiaire {
+typeBeneficiaire TypeBeneficiaire
+autreBeneficiaire String
+description TextBlob
+justification String
+}
+enum TypeBeneficiaire{
+Groupement,
+Association,
+GIE,
+ASC,
+AUTRE
+}
+
+entity Annonce {
+titre String
+description TextBlob
+date LocalDate
+lieu String
+}
+
+relationship OneToMany {
+Don  to Annonce{Don(typeDon)}
+Beneficiaire to Annonce{Beneficiaire(typeBeneficiaire)}
+Donneur to Don{Donneur(typeDonneur)}
+Quartier to Beneficiaire{Quartier(nomQuartier)}
+}
+
+entity Vaccination {
+date LocalDate
+description TextBlob
+duree Boolean
+dateDebut LocalDate
+dateFin LocalDate
+}
+
+entity TypeVaccin {
+libelle String
+objectif LocalDate   
+}
+
+entity Cible {
+cible CibleVacc
+age Long
+}
+
+enum CibleVacc{
+Enfant,
+Adulte,
+PersonneAgee
+}
+
+entity DonSang {
+organisateur String
+description TextBlob
+}
+
+relationship ManyToOne {
+DonSang to Annonce{DonSang(organiteur)}
+Vaccination to Annonce{Vaccination}
+DonSang to Donneur{DonSang(organiteur)}
+Cible to Vaccination{Cible(cible)}
+}
+
+relationship OneToOne {
+Vaccination{typeVaccin(libelle)} to TypeVaccin  
+}
+//--	Activités politiques communales
+entity ActivitePolitique {
+titreActivite String
+descriptionActivite TextBlob
+dateDebut LocalDate
+dateFin LocalDate
+}
+
+//--	Activités TIC
+entity SensibiisationInternet{
+theme LocalDate
+interdiction TextBlob
+bonnePratique TextBlob
+}
+entity UtilisationInternet{
+profil Profil
+autre String
+domaine Domaine
+description TextBlob
+}
+enum Profil{
+Commercant, 
+Chercheur_emploi,
+Entrepreneur,
+Etudiant,
+Chercheur, 
+Autre
+}
+entity Logiciel{
+nomLogiciel String
+description TextBlob
+}
+relationship OneToOne{
+UtilisationInternet{logiciel(nomLogiciel)} to Logiciel
+}
+//-Activités artistiques
+entity Artiste{
+nomArtiste String
+prenomArtiste String
+domaine Domaine
+autreDomaine String
+}
+enum Domaine{
+Chanteurs,
+Danseurs,
+Artistes,
+Peintres, 
+Autre
+}
+entity InterviewsArtiste{
+titre String
+description TextBlob
+lien String
+}
+entity Evenement{
+titre String
+date LocalDate
+lieu String
+}
+relationship OneToOne{
+Quartier{Artiste(nomArtiste)} to Artiste 
+Evenement{Artiste(nomArtiste)} to Artiste
+InterviewsArtiste{Artiste(nomArtiste)} to Artiste  
+}
+
+//--Environnement et développement durable
+entity Vidange{
+nomVideur String
+prenomVideur String
+tel1 String
+tel2 String
+}
+entity CollecteurOdeur{
+nomCollecteur String
+prenomCollecteur String
+date LocalDate
+tel1 String
+
+}
+entity RecuperationRecyclable{
+nom String
+date LocalDate
+lieu String
+}
+
+relationship OneToMany{
+Quartier to CollecteurOdeur{Quartier(nomQuartier)}
+Quartier to Vidange{Quartier(nomQuartier)}
+Quartier to RecuperationRecyclable{Quartier(nomQuartier)}
+}
+//--	Activités scolaires
+entity Etablissement {
+nomEtat String
+dateCreation LocalDate
+description TextBlob
+logo ImageBlob
+}
+
+entity ResultatExamen{
+typeExament Examen
+autreExamen String
+tauxReuissite Double
+annee LocalDate
+}
+enum Examen{
+CFEE,
+BFEM,
+BAC, 
+AUTRE
+}
+
+entity Proposition{
+description TextBlob
+}
+
+entity LienTutoriel{
+descriptionLien String
+lien String
+}
+
+entity Ensegnant{
+nom String
+prenom String
+email String unique required
+tel String unique required
+tel1 String unique
+}
+
+relationship OneToMany {
+Quartier to Etablissement{Quartier(nomQuartier)}
+Ensegnant to Proposition{Enseignant(nom)}
+Etablissement to Ensegnant{Etablissement(nomEtat)}
+Etablissement to ResultatExamen{Etablissement(nomEtat)}
+Ensegnant to LienTutoriel{Enseignant(nom)}
+}
+//--Entreprenariat social
+entity Entreprenariat{
+typeEntre TypeEntreprenariat 
+autreEntre String
+}
+
+enum TypeEntreprenariat{
+Social,
+Economique, 
+Autre
+}
+
+entity Entrepreneur{
+nomEntrepreneur String required
+prenomEntrepreneur String
+emailEntrepreneur String unique
+telEntrepreneur String unique required
+tel1Entrepreneur String unique
+}
+
+entity DemandeInterview{
+nomJournaliste String
+prenomJournaliste String
+nomSociete String required
+emailJournalite String unique required
+dateInterview LocalDate
+etatDemande Boolean
+}
+
+entity DomaineActivite{
+typeActivite String
+description String
+dateActivite ZonedDateTime
+}
+
+entity Partenaires{
+nomPartenaire String
+emailPartenaire String
+telPartenaire String
+description String
+}
+//-Entreprenariat économique
+entity Eleveur{
+nomEleveur String
+prenomEleveur String
+telEleveur String
+tel1Eleveur String
+adresse String
+nomElevage TypeElevage
+descriptionActivite String
+}
+
+enum TypeElevage{
+Moutons,
+Volailles,
+Bovin,
+Autre
+}
+
+entity Evenement{
+nomEvenement String
+libelle String
+action String
+decision String
+delaiInstruction ZonedDateTime
+delaiInscription ZonedDateTime
+delaiValidation ZonedDateTime
+}
+
+entity Inscription{
+nomPers String
+prenomPers String
+emailPers String unique
+telPers String unique required
+tel1Pers String unique
+etatInscription Boolean
+}
+
+relationship OneToOne {
+Entrepreneur{Entreprenariat(typeEntre)} to Entreprenariat 
+Entrepreneur{DomaineActivite(typeActivite)} to DomaineActivite
+DemandeInterview{Entrepreneur(nomEntrepreneur)} to Entrepreneur 
+Partenaires{Entrepreneur(nomEntrepreneur)} to Entrepreneur 
+Inscription{Evenement(libelle)} to Evenement  
+Partenaires{Eleveur(nomEleveur)} to Eleveur  
+}
+relationship OneToMany{
+Quartier to Eleveur{Quartier(nomQuartier)}
+}
+
+//Calendrier des événements communaux à venir
+entity CalendrierEvenement{
+nomEve String
+but TextBlob
+objectif TextBlob
+date LocalDate
+lieu String
+}
+
+
+
+
+
+
+
+
+

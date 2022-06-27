@@ -1,0 +1,30 @@
+{
+  "projetCommunaleApp": {
+    "inscription": {
+      "home": {
+        "title": "Inscriptions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Inscription",
+        "createOrEditLabel": "Créer ou éditer un Inscription",
+        "notFound": "Aucun Inscription trouvé"
+      },
+      "created": "Un nouveau Inscription a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Inscription avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Inscription avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Inscription {{ id }} ?"
+      },
+      "detail": {
+        "title": "Inscription"
+      },
+      "id": "ID",
+      "nomPers": "Nom Pers",
+      "prenomPers": "Prenom Pers",
+      "emailPers": "Email Pers",
+      "telPers": "Tel Pers",
+      "tel1Pers": "Tel 1 Pers",
+      "etatInscription": "Etat Inscription",
+      "evenement": "Evenement"
+    }
+  }
+}

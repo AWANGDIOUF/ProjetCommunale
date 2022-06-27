@@ -1,0 +1,10 @@
+{
+  "projetCommunaleApp": {
+    "TypeDon": {
+      "null": "",
+      "Ravitament": "Ravitament",
+      "Fourniture": "Fourniture",
+      "Argent": "Argent"
+    }
+  }
+}

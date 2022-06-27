@@ -1,0 +1,59 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627114814",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ensegnant",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "required"]
+    },
+    {
+      "fieldName": "tel",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "required"]
+    },
+    {
+      "fieldName": "tel1",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Ensegnant",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "proposition",
+      "otherEntityRelationshipName": "enseignant",
+      "relationshipName": "proposition",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "lienTutoriel",
+      "otherEntityRelationshipName": "enseignant",
+      "relationshipName": "lienTutoriel",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nomEtat",
+      "otherEntityName": "etablissement",
+      "otherEntityRelationshipName": "ensegnant",
+      "relationshipName": "etablissement",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

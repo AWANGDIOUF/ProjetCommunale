@@ -1,0 +1,24 @@
+{
+  "projetCommunaleApp": {
+    "typeSport": {
+      "home": {
+        "title": "TypeSports",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Type Sport",
+        "createOrEditLabel": "Créer ou éditer un Type Sport",
+        "notFound": "Aucun Type Sport trouvé"
+      },
+      "created": "Un nouveau Type Sport a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Sport avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Sport avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Type Sport {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Sport"
+      },
+      "id": "ID",
+      "sport": "Sport"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-sensibiisation-internet-heading"
+        data-cy="SensibiisationInternetCreateUpdateHeading"
+        jhiTranslate="projetCommunaleApp.sensibiisationInternet.home.createOrEditLabel"
+      >
+        Create or edit a Sensibiisation Internet
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.sensibiisationInternet.theme" for="field_theme">Theme</label>
+          <div class="input-group">
+            <input
+              id="field_theme"
+              data-cy="theme"
+              type="text"
+              class="form-control"
+              name="theme"
+              ngbDatepicker
+              #themeDp="ngbDatepicker"
+              formControlName="theme"
+            />
+            <button type="button" class="btn btn-secondary" (click)="themeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.sensibiisationInternet.interdiction" for="field_interdiction"
+            >Interdiction</label
+          >
+          <textarea
+            class="form-control"
+            name="interdiction"
+            id="field_interdiction"
+            data-cy="interdiction"
+            formControlName="interdiction"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.sensibiisationInternet.bonnePratique" for="field_bonnePratique"
+            >Bonne Pratique</label
+          >
+          <textarea
+            class="form-control"
+            name="bonnePratique"
+            id="field_bonnePratique"
+            data-cy="bonnePratique"
+            formControlName="bonnePratique"
+          ></textarea>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

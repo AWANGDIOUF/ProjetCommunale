@@ -1,0 +1,68 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627111814",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "club",
+  "fields": [
+    {
+      "fieldName": "nomClub",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateCreation",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "logo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "discipline",
+      "fieldType": "DisciplineClub",
+      "fieldValues": "TAEKWONDO,KARATE,BOXE"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Club",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "sport",
+      "otherEntityName": "typeSport",
+      "otherEntityRelationshipName": "club",
+      "ownerSide": true,
+      "relationshipName": "typeSport",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "combattant",
+      "otherEntityRelationshipName": "club",
+      "relationshipName": "combattant",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "competition",
+      "otherEntityRelationshipName": "club",
+      "relationshipName": "competition",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "archiveSport",
+      "otherEntityRelationshipName": "club",
+      "relationshipName": "archve",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nomQuartier",
+      "otherEntityName": "quartier",
+      "otherEntityRelationshipName": "club",
+      "relationshipName": "quartier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

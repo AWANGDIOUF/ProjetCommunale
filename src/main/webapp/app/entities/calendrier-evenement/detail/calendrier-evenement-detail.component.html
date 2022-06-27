@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="calendrierEvenement">
+      <h2 data-cy="calendrierEvenementDetailsHeading">
+        <span jhiTranslate="projetCommunaleApp.calendrierEvenement.detail.title">Calendrier Evenement</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ calendrierEvenement.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.calendrierEvenement.nomEve">Nom Eve</span></dt>
+        <dd>
+          <span>{{ calendrierEvenement.nomEve }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.calendrierEvenement.but">But</span></dt>
+        <dd>
+          <span>{{ calendrierEvenement.but }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.calendrierEvenement.objectif">Objectif</span></dt>
+        <dd>
+          <span>{{ calendrierEvenement.objectif }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.calendrierEvenement.date">Date</span></dt>
+        <dd>
+          <span>{{ calendrierEvenement.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.calendrierEvenement.lieu">Lieu</span></dt>
+        <dd>
+          <span>{{ calendrierEvenement.lieu }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/calendrier-evenement', calendrierEvenement.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

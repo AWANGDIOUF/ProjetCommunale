@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="vidange">
+      <h2 data-cy="vidangeDetailsHeading"><span jhiTranslate="projetCommunaleApp.vidange.detail.title">Vidange</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ vidange.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.vidange.nomVideur">Nom Videur</span></dt>
+        <dd>
+          <span>{{ vidange.nomVideur }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.vidange.prenomVideur">Prenom Videur</span></dt>
+        <dd>
+          <span>{{ vidange.prenomVideur }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.vidange.tel1">Tel 1</span></dt>
+        <dd>
+          <span>{{ vidange.tel1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.vidange.tel2">Tel 2</span></dt>
+        <dd>
+          <span>{{ vidange.tel2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.vidange.quartier">Quartier</span></dt>
+        <dd>
+          <div *ngIf="vidange.quartier">
+            <a [routerLink]="['/quartier', vidange.quartier?.id, 'view']">{{ vidange.quartier?.nomQuartier }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/vidange', vidange.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

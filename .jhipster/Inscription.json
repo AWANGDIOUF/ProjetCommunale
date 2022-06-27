@@ -1,0 +1,52 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627115514",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "inscription",
+  "fields": [
+    {
+      "fieldName": "nomPers",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomPers",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailPers",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "telPers",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "required"]
+    },
+    {
+      "fieldName": "tel1Pers",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "etatInscription",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Inscription",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "libelle",
+      "otherEntityName": "evenement",
+      "otherEntityRelationshipName": "inscription",
+      "ownerSide": true,
+      "relationshipName": "evenement",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

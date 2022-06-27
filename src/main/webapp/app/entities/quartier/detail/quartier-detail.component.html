@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="quartier">
+      <h2 data-cy="quartierDetailsHeading"><span jhiTranslate="projetCommunaleApp.quartier.detail.title">Quartier</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ quartier.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.quartier.nomQuartier">Nom Quartier</span></dt>
+        <dd>
+          <span>{{ quartier.nomQuartier }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.quartier.artiste">Artiste</span></dt>
+        <dd>
+          <div *ngIf="quartier.artiste">
+            <a [routerLink]="['/artiste', quartier.artiste?.id, 'view']">{{ quartier.artiste?.nomArtiste }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/quartier', quartier.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

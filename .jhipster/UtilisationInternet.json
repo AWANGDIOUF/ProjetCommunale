@@ -1,0 +1,44 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627113614",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "utilisation_internet",
+  "fields": [
+    {
+      "fieldName": "profil",
+      "fieldType": "Profil",
+      "fieldValues": "Commercant,Chercheur_emploi,Entrepreneur,Etudiant,Chercheur,Autre"
+    },
+    {
+      "fieldName": "autre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "domaine",
+      "fieldType": "Domaine",
+      "fieldValues": "Chanteurs,Danseurs,Artistes,Peintres,Autre"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "UtilisationInternet",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomLogiciel",
+      "otherEntityName": "logiciel",
+      "otherEntityRelationshipName": "utilisationInternet",
+      "ownerSide": true,
+      "relationshipName": "logiciel",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

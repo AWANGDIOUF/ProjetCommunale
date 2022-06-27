@@ -1,0 +1,33 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627113814",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "artiste",
+  "fields": [
+    {
+      "fieldName": "nomArtiste",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomArtiste",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "domaine",
+      "fieldType": "Domaine",
+      "fieldValues": "Chanteurs,Danseurs,Artistes,Peintres,Autre"
+    },
+    {
+      "fieldName": "autreDomaine",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Artiste",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

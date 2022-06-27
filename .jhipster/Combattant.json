@@ -1,0 +1,51 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627112014",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "combattant",
+  "fields": [
+    {
+      "fieldName": "nomCombattant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomCombattant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateNaisCombattant",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lieuNaisCombattant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "photoCombattant",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Combattant",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "vainqueur",
+      "otherEntityRelationshipName": "combattant",
+      "relationshipName": "vainqueur",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nomClub",
+      "otherEntityName": "club",
+      "otherEntityRelationshipName": "combattant",
+      "relationshipName": "club",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

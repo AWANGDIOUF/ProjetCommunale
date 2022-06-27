@@ -1,0 +1,28 @@
+{
+  "projetCommunaleApp": {
+    "vidange": {
+      "home": {
+        "title": "Vidanges",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Vidange",
+        "createOrEditLabel": "Créer ou éditer un Vidange",
+        "notFound": "Aucun Vidange trouvé"
+      },
+      "created": "Un nouveau Vidange a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Vidange avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Vidange avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Vidange {{ id }} ?"
+      },
+      "detail": {
+        "title": "Vidange"
+      },
+      "id": "ID",
+      "nomVideur": "Nom Videur",
+      "prenomVideur": "Prenom Videur",
+      "tel1": "Tel 1",
+      "tel2": "Tel 2",
+      "quartier": "Quartier"
+    }
+  }
+}

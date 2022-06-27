@@ -1,0 +1,32 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627113214",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "cible",
+  "fields": [
+    {
+      "fieldName": "cible",
+      "fieldType": "CibleVacc",
+      "fieldValues": "Enfant,Adulte,PersonneAgee"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Cible",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "vaccination",
+      "otherEntityRelationshipName": "cible",
+      "relationshipName": "vaccination",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

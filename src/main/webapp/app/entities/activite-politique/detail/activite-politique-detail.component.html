@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="activitePolitique">
+      <h2 data-cy="activitePolitiqueDetailsHeading">
+        <span jhiTranslate="projetCommunaleApp.activitePolitique.detail.title">Activite Politique</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ activitePolitique.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.activitePolitique.titreActivite">Titre Activite</span></dt>
+        <dd>
+          <span>{{ activitePolitique.titreActivite }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.activitePolitique.descriptionActivite">Description Activite</span></dt>
+        <dd>
+          <span>{{ activitePolitique.descriptionActivite }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.activitePolitique.dateDebut">Date Debut</span></dt>
+        <dd>
+          <span>{{ activitePolitique.dateDebut | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.activitePolitique.dateFin">Date Fin</span></dt>
+        <dd>
+          <span>{{ activitePolitique.dateFin | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/activite-politique', activitePolitique.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="interviewsArtiste">
+      <h2 data-cy="interviewsArtisteDetailsHeading">
+        <span jhiTranslate="projetCommunaleApp.interviewsArtiste.detail.title">Interviews Artiste</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ interviewsArtiste.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.interviewsArtiste.titre">Titre</span></dt>
+        <dd>
+          <span>{{ interviewsArtiste.titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.interviewsArtiste.description">Description</span></dt>
+        <dd>
+          <span>{{ interviewsArtiste.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.interviewsArtiste.lien">Lien</span></dt>
+        <dd>
+          <span>{{ interviewsArtiste.lien }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.interviewsArtiste.artiste">Artiste</span></dt>
+        <dd>
+          <div *ngIf="interviewsArtiste.artiste">
+            <a [routerLink]="['/artiste', interviewsArtiste.artiste?.id, 'view']">{{ interviewsArtiste.artiste?.nomArtiste }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/interviews-artiste', interviewsArtiste.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

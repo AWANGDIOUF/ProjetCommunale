@@ -1,0 +1,118 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-resultat-examen-heading"
+        data-cy="ResultatExamenCreateUpdateHeading"
+        jhiTranslate="projetCommunaleApp.resultatExamen.home.createOrEditLabel"
+      >
+        Create or edit a Resultat Examen
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.resultatExamen.typeExament" for="field_typeExament"
+            >Type Exament</label
+          >
+          <select class="form-control" name="typeExament" formControlName="typeExament" id="field_typeExament" data-cy="typeExament">
+            <option [ngValue]="null">{{ 'projetCommunaleApp.Examen.null' | translate }}</option>
+            <option *ngFor="let examen of examenValues" [value]="examen">{{ 'projetCommunaleApp.Examen.' + examen | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.resultatExamen.autreExamen" for="field_autreExamen"
+            >Autre Examen</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="autreExamen"
+            id="field_autreExamen"
+            data-cy="autreExamen"
+            formControlName="autreExamen"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.resultatExamen.tauxReuissite" for="field_tauxReuissite"
+            >Taux Reuissite</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="tauxReuissite"
+            id="field_tauxReuissite"
+            data-cy="tauxReuissite"
+            formControlName="tauxReuissite"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.resultatExamen.annee" for="field_annee">Annee</label>
+          <div class="input-group">
+            <input
+              id="field_annee"
+              data-cy="annee"
+              type="text"
+              class="form-control"
+              name="annee"
+              ngbDatepicker
+              #anneeDp="ngbDatepicker"
+              formControlName="annee"
+            />
+            <button type="button" class="btn btn-secondary" (click)="anneeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.resultatExamen.etablissement" for="field_etablissement"
+            >Etablissement</label
+          >
+          <select
+            class="form-control"
+            id="field_etablissement"
+            data-cy="etablissement"
+            name="etablissement"
+            formControlName="etablissement"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                etablissementOption.id === editForm.get('etablissement')!.value?.id
+                  ? editForm.get('etablissement')!.value
+                  : etablissementOption
+              "
+              *ngFor="let etablissementOption of etablissementsSharedCollection; trackBy: trackEtablissementById"
+            >
+              {{ etablissementOption.nomEtat }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627114614",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "proposition",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Proposition",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nom",
+      "otherEntityName": "ensegnant",
+      "otherEntityRelationshipName": "proposition",
+      "relationshipName": "enseignant",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

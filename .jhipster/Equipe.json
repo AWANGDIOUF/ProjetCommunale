@@ -1,0 +1,63 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627111614",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "equipe",
+  "fields": [
+    {
+      "fieldName": "nomEquipe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateCreation",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "logo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Equipe",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "sport",
+      "otherEntityName": "typeSport",
+      "otherEntityRelationshipName": "equipe",
+      "ownerSide": true,
+      "relationshipName": "typeSport",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "joueur",
+      "otherEntityRelationshipName": "equipe",
+      "relationshipName": "joueur",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "match",
+      "otherEntityRelationshipName": "equipe",
+      "relationshipName": "match",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "archiveSport",
+      "otherEntityRelationshipName": "equipe",
+      "relationshipName": "archve",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nomQuartier",
+      "otherEntityName": "quartier",
+      "otherEntityRelationshipName": "equipe",
+      "relationshipName": "quartier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

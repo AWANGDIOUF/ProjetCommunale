@@ -1,0 +1,50 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627111914",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "joueur",
+  "fields": [
+    {
+      "fieldName": "nomJoueur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomJoueur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateNaisJoueur",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lieuNaisJoueur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "posteJoueur",
+      "fieldType": "Poste",
+      "fieldValues": "ATTAQUANT,DEFENSEUR,MILIEU_TERRAIN,GARDIEN"
+    },
+    {
+      "fieldName": "photoJoueur",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Joueur",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomEquipe",
+      "otherEntityName": "equipe",
+      "otherEntityRelationshipName": "joueur",
+      "relationshipName": "equipe",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

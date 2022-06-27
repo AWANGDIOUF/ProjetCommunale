@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="demandeInterview">
+      <h2 data-cy="demandeInterviewDetailsHeading">
+        <span jhiTranslate="projetCommunaleApp.demandeInterview.detail.title">Demande Interview</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ demandeInterview.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.demandeInterview.nomJournaliste">Nom Journaliste</span></dt>
+        <dd>
+          <span>{{ demandeInterview.nomJournaliste }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.demandeInterview.prenomJournaliste">Prenom Journaliste</span></dt>
+        <dd>
+          <span>{{ demandeInterview.prenomJournaliste }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.demandeInterview.nomSociete">Nom Societe</span></dt>
+        <dd>
+          <span>{{ demandeInterview.nomSociete }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.demandeInterview.emailJournalite">Email Journalite</span></dt>
+        <dd>
+          <span>{{ demandeInterview.emailJournalite }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.demandeInterview.dateInterview">Date Interview</span></dt>
+        <dd>
+          <span>{{ demandeInterview.dateInterview | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.demandeInterview.etatDemande">Etat Demande</span></dt>
+        <dd>
+          <span>{{ demandeInterview.etatDemande }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.demandeInterview.entrepreneur">Entrepreneur</span></dt>
+        <dd>
+          <div *ngIf="demandeInterview.entrepreneur">
+            <a [routerLink]="['/entrepreneur', demandeInterview.entrepreneur?.id, 'view']">{{
+              demandeInterview.entrepreneur?.nomEntrepreneur
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/demande-interview', demandeInterview.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

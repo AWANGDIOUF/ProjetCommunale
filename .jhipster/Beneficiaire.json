@@ -1,0 +1,48 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627112814",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "beneficiaire",
+  "fields": [
+    {
+      "fieldName": "typeBeneficiaire",
+      "fieldType": "TypeBeneficiaire",
+      "fieldValues": "Groupement,Association,GIE,ASC,AUTRE"
+    },
+    {
+      "fieldName": "autreBeneficiaire",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "justification",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Beneficiaire",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "annonce",
+      "otherEntityRelationshipName": "beneficiaire",
+      "relationshipName": "annonce",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nomQuartier",
+      "otherEntityName": "quartier",
+      "otherEntityRelationshipName": "beneficiaire",
+      "relationshipName": "quartier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

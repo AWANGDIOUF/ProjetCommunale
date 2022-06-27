@@ -1,0 +1,28 @@
+{
+  "projetCommunaleApp": {
+    "collecteurOdeur": {
+      "home": {
+        "title": "CollecteurOdeurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Collecteur Odeur",
+        "createOrEditLabel": "Créer ou éditer un Collecteur Odeur",
+        "notFound": "Aucun Collecteur Odeur trouvé"
+      },
+      "created": "Un nouveau Collecteur Odeur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Collecteur Odeur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Collecteur Odeur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Collecteur Odeur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Collecteur Odeur"
+      },
+      "id": "ID",
+      "nomCollecteur": "Nom Collecteur",
+      "prenomCollecteur": "Prenom Collecteur",
+      "date": "Date",
+      "tel1": "Tel 1",
+      "quartier": "Quartier"
+    }
+  }
+}

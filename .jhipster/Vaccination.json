@@ -1,0 +1,59 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627113014",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "vaccination",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "duree",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "dateDebut",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateFin",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Vaccination",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "libelle",
+      "otherEntityName": "typeVaccin",
+      "otherEntityRelationshipName": "vaccination",
+      "ownerSide": true,
+      "relationshipName": "typeVaccin",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "annonce",
+      "otherEntityRelationshipName": "vaccination",
+      "relationshipName": "annonce",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "cible",
+      "otherEntityName": "cible",
+      "otherEntityRelationshipName": "vaccination",
+      "relationshipName": "cible",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

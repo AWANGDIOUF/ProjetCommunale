@@ -1,0 +1,28 @@
+{
+  "projetCommunaleApp": {
+    "don": {
+      "home": {
+        "title": "Dons",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Don",
+        "createOrEditLabel": "Créer ou éditer un Don",
+        "notFound": "Aucun Don trouvé"
+      },
+      "created": "Un nouveau Don a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Don avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Don avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Don {{ id }} ?"
+      },
+      "detail": {
+        "title": "Don"
+      },
+      "id": "ID",
+      "typeDon": "Type Don",
+      "montant": "Montant",
+      "description": "Description",
+      "annonce": "Annonce",
+      "donneur": "Donneur"
+    }
+  }
+}

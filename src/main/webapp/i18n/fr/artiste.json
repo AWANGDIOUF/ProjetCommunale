@@ -1,0 +1,27 @@
+{
+  "projetCommunaleApp": {
+    "artiste": {
+      "home": {
+        "title": "Artistes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Artiste",
+        "createOrEditLabel": "Créer ou éditer un Artiste",
+        "notFound": "Aucun Artiste trouvé"
+      },
+      "created": "Un nouveau Artiste a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Artiste avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Artiste avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Artiste {{ id }} ?"
+      },
+      "detail": {
+        "title": "Artiste"
+      },
+      "id": "ID",
+      "nomArtiste": "Nom Artiste",
+      "prenomArtiste": "Prenom Artiste",
+      "domaine": "Domaine",
+      "autreDomaine": "Autre Domaine"
+    }
+  }
+}

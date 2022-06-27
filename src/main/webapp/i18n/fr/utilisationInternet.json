@@ -1,0 +1,28 @@
+{
+  "projetCommunaleApp": {
+    "utilisationInternet": {
+      "home": {
+        "title": "UtilisationInternets",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Utilisation Internet",
+        "createOrEditLabel": "Créer ou éditer un Utilisation Internet",
+        "notFound": "Aucun Utilisation Internet trouvé"
+      },
+      "created": "Un nouveau Utilisation Internet a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Utilisation Internet avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Utilisation Internet avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Utilisation Internet {{ id }} ?"
+      },
+      "detail": {
+        "title": "Utilisation Internet"
+      },
+      "id": "ID",
+      "profil": "Profil",
+      "autre": "Autre",
+      "domaine": "Domaine",
+      "description": "Description",
+      "logiciel": "Logiciel"
+    }
+  }
+}

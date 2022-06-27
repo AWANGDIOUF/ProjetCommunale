@@ -1,0 +1,77 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627112114",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "quartier",
+  "fields": [
+    {
+      "fieldName": "nomQuartier",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Quartier",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomArtiste",
+      "otherEntityName": "artiste",
+      "otherEntityRelationshipName": "quartier",
+      "ownerSide": true,
+      "relationshipName": "artiste",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "equipe",
+      "otherEntityRelationshipName": "quartier",
+      "relationshipName": "equipe",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "club",
+      "otherEntityRelationshipName": "quartier",
+      "relationshipName": "club",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "beneficiaire",
+      "otherEntityRelationshipName": "quartier",
+      "relationshipName": "beneficiaire",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "collecteurOdeur",
+      "otherEntityRelationshipName": "quartier",
+      "relationshipName": "collecteurOdeur",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "vidange",
+      "otherEntityRelationshipName": "quartier",
+      "relationshipName": "vidange",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "recuperationRecyclable",
+      "otherEntityRelationshipName": "quartier",
+      "relationshipName": "recuperationRecyclable",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "etablissement",
+      "otherEntityRelationshipName": "quartier",
+      "relationshipName": "etablissement",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "eleveur",
+      "otherEntityRelationshipName": "quartier",
+      "relationshipName": "eleveur",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

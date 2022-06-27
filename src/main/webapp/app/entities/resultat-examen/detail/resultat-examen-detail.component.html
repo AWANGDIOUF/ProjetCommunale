@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="resultatExamen">
+      <h2 data-cy="resultatExamenDetailsHeading">
+        <span jhiTranslate="projetCommunaleApp.resultatExamen.detail.title">Resultat Examen</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ resultatExamen.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.resultatExamen.typeExament">Type Exament</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'projetCommunaleApp.Examen.' + resultatExamen.typeExament }}">{{ resultatExamen.typeExament }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.resultatExamen.autreExamen">Autre Examen</span></dt>
+        <dd>
+          <span>{{ resultatExamen.autreExamen }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.resultatExamen.tauxReuissite">Taux Reuissite</span></dt>
+        <dd>
+          <span>{{ resultatExamen.tauxReuissite }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.resultatExamen.annee">Annee</span></dt>
+        <dd>
+          <span>{{ resultatExamen.annee | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.resultatExamen.etablissement">Etablissement</span></dt>
+        <dd>
+          <div *ngIf="resultatExamen.etablissement">
+            <a [routerLink]="['/etablissement', resultatExamen.etablissement?.id, 'view']">{{ resultatExamen.etablissement?.nomEtat }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/resultat-examen', resultatExamen.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

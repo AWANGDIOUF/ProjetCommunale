@@ -1,0 +1,31 @@
+{
+  "projetCommunaleApp": {
+    "ensegnant": {
+      "home": {
+        "title": "Ensegnants",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Ensegnant",
+        "createOrEditLabel": "Créer ou éditer un Ensegnant",
+        "notFound": "Aucun Ensegnant trouvé"
+      },
+      "created": "Un nouveau Ensegnant a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ensegnant avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ensegnant avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Ensegnant {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ensegnant"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "email": "Email",
+      "tel": "Tel",
+      "tel1": "Tel 1",
+      "proposition": "Proposition",
+      "lienTutoriel": "Lien Tutoriel",
+      "etablissement": "Etablissement"
+    }
+  }
+}

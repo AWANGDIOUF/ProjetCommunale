@@ -1,0 +1,12 @@
+{
+  "projetCommunaleApp": {
+    "TypeBeneficiaire": {
+      "null": "",
+      "Groupement": "Groupement",
+      "Association": "Association",
+      "GIE": "GIE",
+      "ASC": "ASC",
+      "AUTRE": "AUTRE"
+    }
+  }
+}

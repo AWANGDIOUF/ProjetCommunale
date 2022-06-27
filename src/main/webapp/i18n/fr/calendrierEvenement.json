@@ -1,0 +1,28 @@
+{
+  "projetCommunaleApp": {
+    "calendrierEvenement": {
+      "home": {
+        "title": "CalendrierEvenements",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Calendrier Evenement",
+        "createOrEditLabel": "Créer ou éditer un Calendrier Evenement",
+        "notFound": "Aucun Calendrier Evenement trouvé"
+      },
+      "created": "Un nouveau Calendrier Evenement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Calendrier Evenement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Calendrier Evenement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Calendrier Evenement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Calendrier Evenement"
+      },
+      "id": "ID",
+      "nomEve": "Nom Eve",
+      "but": "But",
+      "objectif": "Objectif",
+      "date": "Date",
+      "lieu": "Lieu"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627112314",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "jhi_match",
+  "fields": [
+    {
+      "fieldName": "dateMatch",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lieuMatch",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "scoreMatch",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Match",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomEquipe",
+      "otherEntityName": "equipe",
+      "otherEntityRelationshipName": "match",
+      "relationshipName": "equipe",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

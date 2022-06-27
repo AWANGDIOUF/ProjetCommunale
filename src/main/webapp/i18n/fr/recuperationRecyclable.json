@@ -1,0 +1,27 @@
+{
+  "projetCommunaleApp": {
+    "recuperationRecyclable": {
+      "home": {
+        "title": "RecuperationRecyclables",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Recuperation Recyclable",
+        "createOrEditLabel": "Créer ou éditer un Recuperation Recyclable",
+        "notFound": "Aucun Recuperation Recyclable trouvé"
+      },
+      "created": "Un nouveau Recuperation Recyclable a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Recuperation Recyclable avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Recuperation Recyclable avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Recuperation Recyclable {{ id }} ?"
+      },
+      "detail": {
+        "title": "Recuperation Recyclable"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "date": "Date",
+      "lieu": "Lieu",
+      "quartier": "Quartier"
+    }
+  }
+}

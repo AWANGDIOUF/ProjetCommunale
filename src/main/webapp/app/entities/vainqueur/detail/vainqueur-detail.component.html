@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="vainqueur">
+      <h2 data-cy="vainqueurDetailsHeading"><span jhiTranslate="projetCommunaleApp.vainqueur.detail.title">Vainqueur</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ vainqueur.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.vainqueur.prix">Prix</span></dt>
+        <dd>
+          <span>{{ vainqueur.prix }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.vainqueur.competition">Competition</span></dt>
+        <dd>
+          <div *ngIf="vainqueur.competition">
+            <a [routerLink]="['/competition', vainqueur.competition?.id, 'view']">{{ vainqueur.competition?.discipline }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.vainqueur.combattant">Combattant</span></dt>
+        <dd>
+          <div *ngIf="vainqueur.combattant">
+            <a [routerLink]="['/combattant', vainqueur.combattant?.id, 'view']">{{ vainqueur.combattant?.nomCombattant }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/vainqueur', vainqueur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

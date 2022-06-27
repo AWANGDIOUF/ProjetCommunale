@@ -1,0 +1,51 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627115114",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "demande_interview",
+  "fields": [
+    {
+      "fieldName": "nomJournaliste",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomJournaliste",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomSociete",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "emailJournalite",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "required"]
+    },
+    {
+      "fieldName": "dateInterview",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "etatDemande",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DemandeInterview",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomEntrepreneur",
+      "otherEntityName": "entrepreneur",
+      "otherEntityRelationshipName": "demandeInterview",
+      "ownerSide": true,
+      "relationshipName": "entrepreneur",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

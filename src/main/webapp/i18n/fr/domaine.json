@@ -1,0 +1,12 @@
+{
+  "projetCommunaleApp": {
+    "Domaine": {
+      "null": "",
+      "Chanteurs": "Chanteurs",
+      "Danseurs": "Danseurs",
+      "Artistes": "Artistes",
+      "Peintres": "Peintres",
+      "Autre": "Autre"
+    }
+  }
+}

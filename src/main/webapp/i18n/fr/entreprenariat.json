@@ -1,0 +1,25 @@
+{
+  "projetCommunaleApp": {
+    "entreprenariat": {
+      "home": {
+        "title": "Entreprenariats",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Entreprenariat",
+        "createOrEditLabel": "Créer ou éditer un Entreprenariat",
+        "notFound": "Aucun Entreprenariat trouvé"
+      },
+      "created": "Un nouveau Entreprenariat a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Entreprenariat avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Entreprenariat avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Entreprenariat {{ id }} ?"
+      },
+      "detail": {
+        "title": "Entreprenariat"
+      },
+      "id": "ID",
+      "typeEntre": "Type Entre",
+      "autreEntre": "Autre Entre"
+    }
+  }
+}

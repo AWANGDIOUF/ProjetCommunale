@@ -1,0 +1,43 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627112614",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "don",
+  "fields": [
+    {
+      "fieldName": "typeDon",
+      "fieldType": "TypeDon",
+      "fieldValues": "Ravitament,Fourniture,Argent"
+    },
+    {
+      "fieldName": "montant",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Don",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "annonce",
+      "otherEntityRelationshipName": "don",
+      "relationshipName": "annonce",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "typeDonneur",
+      "otherEntityName": "donneur",
+      "otherEntityRelationshipName": "don",
+      "relationshipName": "donneur",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

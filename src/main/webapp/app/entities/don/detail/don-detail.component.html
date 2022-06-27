@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="don">
+      <h2 data-cy="donDetailsHeading"><span jhiTranslate="projetCommunaleApp.don.detail.title">Don</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ don.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.don.typeDon">Type Don</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'projetCommunaleApp.TypeDon.' + don.typeDon }}">{{ don.typeDon }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.don.montant">Montant</span></dt>
+        <dd>
+          <span>{{ don.montant }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.don.description">Description</span></dt>
+        <dd>
+          <span>{{ don.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.don.donneur">Donneur</span></dt>
+        <dd>
+          <div *ngIf="don.donneur">
+            <a [routerLink]="['/donneur', don.donneur?.id, 'view']">{{ don.donneur?.typeDonneur }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/don', don.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

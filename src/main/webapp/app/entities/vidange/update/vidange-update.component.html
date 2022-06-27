@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-vidange-heading" data-cy="VidangeCreateUpdateHeading" jhiTranslate="projetCommunaleApp.vidange.home.createOrEditLabel">
+        Create or edit a Vidange
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.vidange.nomVideur" for="field_nomVideur">Nom Videur</label>
+          <input type="text" class="form-control" name="nomVideur" id="field_nomVideur" data-cy="nomVideur" formControlName="nomVideur" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.vidange.prenomVideur" for="field_prenomVideur">Prenom Videur</label>
+          <input
+            type="text"
+            class="form-control"
+            name="prenomVideur"
+            id="field_prenomVideur"
+            data-cy="prenomVideur"
+            formControlName="prenomVideur"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.vidange.tel1" for="field_tel1">Tel 1</label>
+          <input type="text" class="form-control" name="tel1" id="field_tel1" data-cy="tel1" formControlName="tel1" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.vidange.tel2" for="field_tel2">Tel 2</label>
+          <input type="text" class="form-control" name="tel2" id="field_tel2" data-cy="tel2" formControlName="tel2" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.vidange.quartier" for="field_quartier">Quartier</label>
+          <select class="form-control" id="field_quartier" data-cy="quartier" name="quartier" formControlName="quartier">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="quartierOption.id === editForm.get('quartier')!.value?.id ? editForm.get('quartier')!.value : quartierOption"
+              *ngFor="let quartierOption of quartiersSharedCollection; trackBy: trackQuartierById"
+            >
+              {{ quartierOption.nomQuartier }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

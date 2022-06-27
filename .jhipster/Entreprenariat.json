@@ -1,0 +1,25 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627114914",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "entreprenariat",
+  "fields": [
+    {
+      "fieldName": "typeEntre",
+      "fieldType": "TypeEntreprenariat",
+      "fieldValues": "Social,Economique,Autre"
+    },
+    {
+      "fieldName": "autreEntre",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Entreprenariat",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

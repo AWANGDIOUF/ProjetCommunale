@@ -1,0 +1,53 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627115414",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "eleveur",
+  "fields": [
+    {
+      "fieldName": "nomEleveur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomEleveur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telEleveur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tel1Eleveur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomElevage",
+      "fieldType": "TypeElevage",
+      "fieldValues": "Moutons,Volailles,Bovin,Autre"
+    },
+    {
+      "fieldName": "descriptionActivite",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Eleveur",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomQuartier",
+      "otherEntityName": "quartier",
+      "otherEntityRelationshipName": "eleveur",
+      "relationshipName": "quartier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

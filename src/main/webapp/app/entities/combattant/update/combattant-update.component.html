@@ -1,0 +1,163 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-combattant-heading"
+        data-cy="CombattantCreateUpdateHeading"
+        jhiTranslate="projetCommunaleApp.combattant.home.createOrEditLabel"
+      >
+        Create or edit a Combattant
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.combattant.nomCombattant" for="field_nomCombattant"
+            >Nom Combattant</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nomCombattant"
+            id="field_nomCombattant"
+            data-cy="nomCombattant"
+            formControlName="nomCombattant"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.combattant.prenomCombattant" for="field_prenomCombattant"
+            >Prenom Combattant</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="prenomCombattant"
+            id="field_prenomCombattant"
+            data-cy="prenomCombattant"
+            formControlName="prenomCombattant"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.combattant.dateNaisCombattant" for="field_dateNaisCombattant"
+            >Date Nais Combattant</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateNaisCombattant"
+              data-cy="dateNaisCombattant"
+              type="text"
+              class="form-control"
+              name="dateNaisCombattant"
+              ngbDatepicker
+              #dateNaisCombattantDp="ngbDatepicker"
+              formControlName="dateNaisCombattant"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateNaisCombattantDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.combattant.lieuNaisCombattant" for="field_lieuNaisCombattant"
+            >Lieu Nais Combattant</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lieuNaisCombattant"
+            id="field_lieuNaisCombattant"
+            data-cy="lieuNaisCombattant"
+            formControlName="lieuNaisCombattant"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.combattant.photoCombattant" for="field_photoCombattant"
+            >Photo Combattant</label
+          >
+          <div>
+            <img
+              [src]="'data:' + editForm.get('photoCombattantContentType')!.value + ';base64,' + editForm.get('photoCombattant')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('photoCombattant')!.value"
+              alt="combattant image"
+            />
+            <div *ngIf="editForm.get('photoCombattant')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('photoCombattantContentType')!.value }}, {{ byteSize(editForm.get('photoCombattant')!.value) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('photoCombattant', 'photoCombattantContentType', 'file_photoCombattant')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_photoCombattant"
+              data-cy="photoCombattant"
+              (change)="setFileData($event, 'photoCombattant', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="photoCombattant"
+            id="field_photoCombattant"
+            data-cy="photoCombattant"
+            formControlName="photoCombattant"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="photoCombattantContentType"
+            id="field_photoCombattantContentType"
+            formControlName="photoCombattantContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.combattant.club" for="field_club">Club</label>
+          <select class="form-control" id="field_club" data-cy="club" name="club" formControlName="club">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="clubOption.id === editForm.get('club')!.value?.id ? editForm.get('club')!.value : clubOption"
+              *ngFor="let clubOption of clubsSharedCollection; trackBy: trackClubById"
+            >
+              {{ clubOption.nomClub }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

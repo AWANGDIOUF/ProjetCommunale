@@ -1,0 +1,108 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-inscription-heading"
+        data-cy="InscriptionCreateUpdateHeading"
+        jhiTranslate="projetCommunaleApp.inscription.home.createOrEditLabel"
+      >
+        Create or edit a Inscription
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.inscription.nomPers" for="field_nomPers">Nom Pers</label>
+          <input type="text" class="form-control" name="nomPers" id="field_nomPers" data-cy="nomPers" formControlName="nomPers" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.inscription.prenomPers" for="field_prenomPers">Prenom Pers</label>
+          <input
+            type="text"
+            class="form-control"
+            name="prenomPers"
+            id="field_prenomPers"
+            data-cy="prenomPers"
+            formControlName="prenomPers"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.inscription.emailPers" for="field_emailPers">Email Pers</label>
+          <input type="text" class="form-control" name="emailPers" id="field_emailPers" data-cy="emailPers" formControlName="emailPers" />
+          <div *ngIf="editForm.get('emailPers')!.invalid && (editForm.get('emailPers')!.dirty || editForm.get('emailPers')!.touched)"></div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.inscription.telPers" for="field_telPers">Tel Pers</label>
+          <input type="text" class="form-control" name="telPers" id="field_telPers" data-cy="telPers" formControlName="telPers" />
+          <div *ngIf="editForm.get('telPers')!.invalid && (editForm.get('telPers')!.dirty || editForm.get('telPers')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('telPers')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.inscription.tel1Pers" for="field_tel1Pers">Tel 1 Pers</label>
+          <input type="text" class="form-control" name="tel1Pers" id="field_tel1Pers" data-cy="tel1Pers" formControlName="tel1Pers" />
+          <div *ngIf="editForm.get('tel1Pers')!.invalid && (editForm.get('tel1Pers')!.dirty || editForm.get('tel1Pers')!.touched)"></div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.inscription.etatInscription" for="field_etatInscription"
+            >Etat Inscription</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="etatInscription"
+            id="field_etatInscription"
+            data-cy="etatInscription"
+            formControlName="etatInscription"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.inscription.evenement" for="field_evenement">Evenement</label>
+          <select class="form-control" id="field_evenement" data-cy="evenement" name="evenement" formControlName="evenement">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="evenementOption.id === editForm.get('evenement')!.value?.id ? editForm.get('evenement')!.value : evenementOption"
+              *ngFor="let evenementOption of evenementsCollection; trackBy: trackEvenementById"
+            >
+              {{ evenementOption.libelle }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<div>
+  <h2 id="page-heading" data-cy="VaccinationHeading">
+    <span jhiTranslate="projetCommunaleApp.vaccination.home.title">Vaccinations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="projetCommunaleApp.vaccination.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-vaccination"
+        [routerLink]="['/vaccination/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="projetCommunaleApp.vaccination.home.createLabel"> Create a new Vaccination </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="vaccinations?.length === 0">
+    <span jhiTranslate="projetCommunaleApp.vaccination.home.notFound">No vaccinations found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="vaccinations && vaccinations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="projetCommunaleApp.vaccination.date">Date</span></th>
+          <th scope="col"><span jhiTranslate="projetCommunaleApp.vaccination.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="projetCommunaleApp.vaccination.duree">Duree</span></th>
+          <th scope="col"><span jhiTranslate="projetCommunaleApp.vaccination.dateDebut">Date Debut</span></th>
+          <th scope="col"><span jhiTranslate="projetCommunaleApp.vaccination.dateFin">Date Fin</span></th>
+          <th scope="col"><span jhiTranslate="projetCommunaleApp.vaccination.typeVaccin">Type Vaccin</span></th>
+          <th scope="col"><span jhiTranslate="projetCommunaleApp.vaccination.annonce">Annonce</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vaccination of vaccinations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/vaccination', vaccination.id, 'view']">{{ vaccination.id }}</a>
+          </td>
+          <td>{{ vaccination.date | formatMediumDate }}</td>
+          <td>{{ vaccination.description }}</td>
+          <td>{{ vaccination.duree }}</td>
+          <td>{{ vaccination.dateDebut | formatMediumDate }}</td>
+          <td>{{ vaccination.dateFin | formatMediumDate }}</td>
+          <td>
+            <div *ngIf="vaccination.typeVaccin">
+              <a [routerLink]="['/type-vaccin', vaccination.typeVaccin?.id, 'view']">{{ vaccination.typeVaccin?.libelle }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="vaccination.annonce">
+              <a [routerLink]="['/annonce', vaccination.annonce?.id, 'view']">{{ vaccination.annonce?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/vaccination', vaccination.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/vaccination', vaccination.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(vaccination)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

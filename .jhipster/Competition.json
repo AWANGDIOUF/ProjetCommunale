@@ -1,0 +1,43 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627112414",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "competition",
+  "fields": [
+    {
+      "fieldName": "dateCompetition",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lieuCompetition",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "discipline",
+      "fieldType": "DisciplineClub",
+      "fieldValues": "TAEKWONDO,KARATE,BOXE"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Competition",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "vainqueur",
+      "otherEntityRelationshipName": "competition",
+      "relationshipName": "vainqueur",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nomClub",
+      "otherEntityName": "club",
+      "otherEntityRelationshipName": "competition",
+      "relationshipName": "club",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

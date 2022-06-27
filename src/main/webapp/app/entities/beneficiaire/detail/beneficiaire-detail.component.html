@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="beneficiaire">
+      <h2 data-cy="beneficiaireDetailsHeading"><span jhiTranslate="projetCommunaleApp.beneficiaire.detail.title">Beneficiaire</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ beneficiaire.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.beneficiaire.typeBeneficiaire">Type Beneficiaire</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'projetCommunaleApp.TypeBeneficiaire.' + beneficiaire.typeBeneficiaire }}">{{
+            beneficiaire.typeBeneficiaire
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.beneficiaire.autreBeneficiaire">Autre Beneficiaire</span></dt>
+        <dd>
+          <span>{{ beneficiaire.autreBeneficiaire }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.beneficiaire.description">Description</span></dt>
+        <dd>
+          <span>{{ beneficiaire.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.beneficiaire.justification">Justification</span></dt>
+        <dd>
+          <span>{{ beneficiaire.justification }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.beneficiaire.quartier">Quartier</span></dt>
+        <dd>
+          <div *ngIf="beneficiaire.quartier">
+            <a [routerLink]="['/quartier', beneficiaire.quartier?.id, 'view']">{{ beneficiaire.quartier?.nomQuartier }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/beneficiaire', beneficiaire.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

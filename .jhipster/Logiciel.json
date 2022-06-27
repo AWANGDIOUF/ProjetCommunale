@@ -1,0 +1,25 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627113714",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "logiciel",
+  "fields": [
+    {
+      "fieldName": "nomLogiciel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Logiciel",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

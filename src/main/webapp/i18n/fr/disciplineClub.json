@@ -1,0 +1,10 @@
+{
+  "projetCommunaleApp": {
+    "DisciplineClub": {
+      "null": "",
+      "TAEKWONDO": "TAEKWONDO",
+      "KARATE": "KARATE",
+      "BOXE": "BOXE"
+    }
+  }
+}

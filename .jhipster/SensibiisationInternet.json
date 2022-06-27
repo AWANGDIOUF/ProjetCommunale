@@ -1,0 +1,30 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627113514",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "sensibiisation_internet",
+  "fields": [
+    {
+      "fieldName": "theme",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "interdiction",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "bonnePratique",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SensibiisationInternet",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

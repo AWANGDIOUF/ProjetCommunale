@@ -1,0 +1,28 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627115214",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "domaine_activite",
+  "fields": [
+    {
+      "fieldName": "typeActivite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateActivite",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DomaineActivite",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

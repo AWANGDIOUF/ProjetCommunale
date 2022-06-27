@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="artiste">
+      <h2 data-cy="artisteDetailsHeading"><span jhiTranslate="projetCommunaleApp.artiste.detail.title">Artiste</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ artiste.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.artiste.nomArtiste">Nom Artiste</span></dt>
+        <dd>
+          <span>{{ artiste.nomArtiste }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.artiste.prenomArtiste">Prenom Artiste</span></dt>
+        <dd>
+          <span>{{ artiste.prenomArtiste }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.artiste.domaine">Domaine</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'projetCommunaleApp.Domaine.' + artiste.domaine }}">{{ artiste.domaine }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.artiste.autreDomaine">Autre Domaine</span></dt>
+        <dd>
+          <span>{{ artiste.autreDomaine }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/artiste', artiste.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="inscription">
+      <h2 data-cy="inscriptionDetailsHeading"><span jhiTranslate="projetCommunaleApp.inscription.detail.title">Inscription</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ inscription.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.inscription.nomPers">Nom Pers</span></dt>
+        <dd>
+          <span>{{ inscription.nomPers }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.inscription.prenomPers">Prenom Pers</span></dt>
+        <dd>
+          <span>{{ inscription.prenomPers }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.inscription.emailPers">Email Pers</span></dt>
+        <dd>
+          <span>{{ inscription.emailPers }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.inscription.telPers">Tel Pers</span></dt>
+        <dd>
+          <span>{{ inscription.telPers }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.inscription.tel1Pers">Tel 1 Pers</span></dt>
+        <dd>
+          <span>{{ inscription.tel1Pers }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.inscription.etatInscription">Etat Inscription</span></dt>
+        <dd>
+          <span>{{ inscription.etatInscription }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.inscription.evenement">Evenement</span></dt>
+        <dd>
+          <div *ngIf="inscription.evenement">
+            <a [routerLink]="['/evenement', inscription.evenement?.id, 'view']">{{ inscription.evenement?.libelle }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/inscription', inscription.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

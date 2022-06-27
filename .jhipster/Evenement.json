@@ -1,0 +1,53 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627114014",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "evenement",
+  "fields": [
+    {
+      "fieldName": "nomEvenement",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "action",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "decision",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "delaiInstruction",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "delaiInscription",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "delaiValidation",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Evenement",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomArtiste",
+      "otherEntityName": "artiste",
+      "otherEntityRelationshipName": "evenement",
+      "ownerSide": true,
+      "relationshipName": "artiste",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,24 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627113114",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "type_vaccin",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "objectif",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TypeVaccin",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

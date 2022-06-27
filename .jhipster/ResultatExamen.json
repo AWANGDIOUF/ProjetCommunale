@@ -1,0 +1,41 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627114514",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "resultat_examen",
+  "fields": [
+    {
+      "fieldName": "typeExament",
+      "fieldType": "Examen",
+      "fieldValues": "CFEE,BFEM,BAC,AUTRE"
+    },
+    {
+      "fieldName": "autreExamen",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tauxReuissite",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "annee",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ResultatExamen",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomEtat",
+      "otherEntityName": "etablissement",
+      "otherEntityRelationshipName": "resultatExamen",
+      "relationshipName": "etablissement",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

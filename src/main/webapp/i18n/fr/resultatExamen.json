@@ -1,0 +1,28 @@
+{
+  "projetCommunaleApp": {
+    "resultatExamen": {
+      "home": {
+        "title": "ResultatExamen",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Resultat Examen",
+        "createOrEditLabel": "Créer ou éditer un Resultat Examen",
+        "notFound": "Aucun Resultat Examen trouvé"
+      },
+      "created": "Un nouveau Resultat Examen a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Resultat Examen avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Resultat Examen avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Resultat Examen {{ id }} ?"
+      },
+      "detail": {
+        "title": "Resultat Examen"
+      },
+      "id": "ID",
+      "typeExament": "Type Exament",
+      "autreExamen": "Autre Examen",
+      "tauxReuissite": "Taux Reuissite",
+      "annee": "Annee",
+      "etablissement": "Etablissement"
+    }
+  }
+}

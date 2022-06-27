@@ -1,0 +1,26 @@
+{
+  "projetCommunaleApp": {
+    "sensibiisationInternet": {
+      "home": {
+        "title": "SensibiisationInternets",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Sensibiisation Internet",
+        "createOrEditLabel": "Créer ou éditer un Sensibiisation Internet",
+        "notFound": "Aucun Sensibiisation Internet trouvé"
+      },
+      "created": "Un nouveau Sensibiisation Internet a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Sensibiisation Internet avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Sensibiisation Internet avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Sensibiisation Internet {{ id }} ?"
+      },
+      "detail": {
+        "title": "Sensibiisation Internet"
+      },
+      "id": "ID",
+      "theme": "Theme",
+      "interdiction": "Interdiction",
+      "bonnePratique": "Bonne Pratique"
+    }
+  }
+}

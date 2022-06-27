@@ -1,0 +1,26 @@
+{
+  "projetCommunaleApp": {
+    "archiveSport": {
+      "home": {
+        "title": "ArchiveSports",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Archive Sport",
+        "createOrEditLabel": "Créer ou éditer un Archive Sport",
+        "notFound": "Aucun Archive Sport trouvé"
+      },
+      "created": "Un nouveau Archive Sport a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Archive Sport avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Archive Sport avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Archive Sport {{ id }} ?"
+      },
+      "detail": {
+        "title": "Archive Sport"
+      },
+      "id": "ID",
+      "annee": "Annee",
+      "equipe": "Equipe",
+      "club": "Club"
+    }
+  }
+}

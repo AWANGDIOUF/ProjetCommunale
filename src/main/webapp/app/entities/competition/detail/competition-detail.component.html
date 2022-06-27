@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="competition">
+      <h2 data-cy="competitionDetailsHeading"><span jhiTranslate="projetCommunaleApp.competition.detail.title">Competition</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ competition.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.competition.dateCompetition">Date Competition</span></dt>
+        <dd>
+          <span>{{ competition.dateCompetition | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.competition.lieuCompetition">Lieu Competition</span></dt>
+        <dd>
+          <span>{{ competition.lieuCompetition }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.competition.discipline">Discipline</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'projetCommunaleApp.DisciplineClub.' + competition.discipline }}">{{ competition.discipline }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.competition.club">Club</span></dt>
+        <dd>
+          <div *ngIf="competition.club">
+            <a [routerLink]="['/club', competition.club?.id, 'view']">{{ competition.club?.nomClub }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/competition', competition.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

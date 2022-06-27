@@ -1,0 +1,40 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627114114",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "vidange",
+  "fields": [
+    {
+      "fieldName": "nomVideur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomVideur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tel1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tel2",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Vidange",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomQuartier",
+      "otherEntityName": "quartier",
+      "otherEntityRelationshipName": "vidange",
+      "relationshipName": "quartier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

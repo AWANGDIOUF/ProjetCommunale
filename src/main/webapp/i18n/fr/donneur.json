@@ -1,0 +1,33 @@
+{
+  "projetCommunaleApp": {
+    "donneur": {
+      "home": {
+        "title": "Donneurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Donneur",
+        "createOrEditLabel": "Créer ou éditer un Donneur",
+        "notFound": "Aucun Donneur trouvé"
+      },
+      "created": "Un nouveau Donneur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Donneur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Donneur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Donneur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Donneur"
+      },
+      "id": "ID",
+      "typeDonneur": "Type Donneur",
+      "prenom": "Prenom",
+      "nom": "Nom",
+      "email": "Email",
+      "adresse": "Adresse",
+      "tel1": "Tel 1",
+      "ville": "Ville",
+      "description": "Description",
+      "don": "Don",
+      "donSang": "Don Sang"
+    }
+  }
+}

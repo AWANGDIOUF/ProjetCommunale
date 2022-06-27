@@ -1,0 +1,54 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627114414",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "etablissement",
+  "fields": [
+    {
+      "fieldName": "nomEtat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateCreation",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "logo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Etablissement",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "ensegnant",
+      "otherEntityRelationshipName": "etablissement",
+      "relationshipName": "ensegnant",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "resultatExamen",
+      "otherEntityRelationshipName": "etablissement",
+      "relationshipName": "resultatExamen",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nomQuartier",
+      "otherEntityName": "quartier",
+      "otherEntityRelationshipName": "etablissement",
+      "relationshipName": "quartier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="BeneficiaireHeading">
+    <span jhiTranslate="projetCommunaleApp.beneficiaire.home.title">Beneficiaires</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="projetCommunaleApp.beneficiaire.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-beneficiaire"
+        [routerLink]="['/beneficiaire/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="projetCommunaleApp.beneficiaire.home.createLabel"> Create a new Beneficiaire </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="beneficiaires?.length === 0">
+    <span jhiTranslate="projetCommunaleApp.beneficiaire.home.notFound">No beneficiaires found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="beneficiaires && beneficiaires.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="projetCommunaleApp.beneficiaire.typeBeneficiaire">Type Beneficiaire</span></th>
+          <th scope="col"><span jhiTranslate="projetCommunaleApp.beneficiaire.autreBeneficiaire">Autre Beneficiaire</span></th>
+          <th scope="col"><span jhiTranslate="projetCommunaleApp.beneficiaire.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="projetCommunaleApp.beneficiaire.justification">Justification</span></th>
+          <th scope="col"><span jhiTranslate="projetCommunaleApp.beneficiaire.quartier">Quartier</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let beneficiaire of beneficiaires; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/beneficiaire', beneficiaire.id, 'view']">{{ beneficiaire.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'projetCommunaleApp.TypeBeneficiaire.' + beneficiaire.typeBeneficiaire }}">
+            {{ beneficiaire.typeBeneficiaire }}
+          </td>
+          <td>{{ beneficiaire.autreBeneficiaire }}</td>
+          <td>{{ beneficiaire.description }}</td>
+          <td>{{ beneficiaire.justification }}</td>
+          <td>
+            <div *ngIf="beneficiaire.quartier">
+              <a [routerLink]="['/quartier', beneficiaire.quartier?.id, 'view']">{{ beneficiaire.quartier?.nomQuartier }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/beneficiaire', beneficiaire.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/beneficiaire', beneficiaire.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(beneficiaire)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "projetCommunaleApp": {
+    "TypeEntreprenariat": {
+      "null": "",
+      "Social": "Social",
+      "Economique": "Economique",
+      "Autre": "Autre"
+    }
+  }
+}

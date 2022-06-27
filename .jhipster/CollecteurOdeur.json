@@ -1,0 +1,40 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627114214",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "collecteur_odeur",
+  "fields": [
+    {
+      "fieldName": "nomCollecteur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomCollecteur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "tel1",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CollecteurOdeur",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomQuartier",
+      "otherEntityName": "quartier",
+      "otherEntityRelationshipName": "collecteurOdeur",
+      "relationshipName": "quartier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

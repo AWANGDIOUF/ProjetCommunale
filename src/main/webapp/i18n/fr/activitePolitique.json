@@ -1,0 +1,27 @@
+{
+  "projetCommunaleApp": {
+    "activitePolitique": {
+      "home": {
+        "title": "ActivitePolitiques",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Activite Politique",
+        "createOrEditLabel": "Créer ou éditer un Activite Politique",
+        "notFound": "Aucun Activite Politique trouvé"
+      },
+      "created": "Un nouveau Activite Politique a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Activite Politique avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Activite Politique avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Activite Politique {{ id }} ?"
+      },
+      "detail": {
+        "title": "Activite Politique"
+      },
+      "id": "ID",
+      "titreActivite": "Titre Activite",
+      "descriptionActivite": "Description Activite",
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin"
+    }
+  }
+}

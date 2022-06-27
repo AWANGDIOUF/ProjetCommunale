@@ -1,0 +1,61 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627112914",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "annonce",
+  "fields": [
+    {
+      "fieldName": "titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lieu",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Annonce",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "typeDon",
+      "otherEntityName": "don",
+      "otherEntityRelationshipName": "annonce",
+      "relationshipName": "don",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "typeBeneficiaire",
+      "otherEntityName": "beneficiaire",
+      "otherEntityRelationshipName": "annonce",
+      "relationshipName": "beneficiaire",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "organiteur",
+      "otherEntityName": "donSang",
+      "otherEntityRelationshipName": "annonce",
+      "relationshipName": "donSang",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "vaccination",
+      "otherEntityRelationshipName": "annonce",
+      "relationshipName": "vaccination",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

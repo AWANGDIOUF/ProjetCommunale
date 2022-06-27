@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="archiveSport">
+      <h2 data-cy="archiveSportDetailsHeading"><span jhiTranslate="projetCommunaleApp.archiveSport.detail.title">Archive Sport</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ archiveSport.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.archiveSport.annee">Annee</span></dt>
+        <dd>
+          <span>{{ archiveSport.annee | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.archiveSport.equipe">Equipe</span></dt>
+        <dd>
+          <div *ngIf="archiveSport.equipe">
+            <a [routerLink]="['/equipe', archiveSport.equipe?.id, 'view']">{{ archiveSport.equipe?.nomEquipe }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.archiveSport.club">Club</span></dt>
+        <dd>
+          <div *ngIf="archiveSport.club">
+            <a [routerLink]="['/club', archiveSport.club?.id, 'view']">{{ archiveSport.club?.nomClub }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/archive-sport', archiveSport.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

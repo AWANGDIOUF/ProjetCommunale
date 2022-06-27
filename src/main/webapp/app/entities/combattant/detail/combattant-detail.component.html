@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="combattant">
+      <h2 data-cy="combattantDetailsHeading"><span jhiTranslate="projetCommunaleApp.combattant.detail.title">Combattant</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ combattant.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.combattant.nomCombattant">Nom Combattant</span></dt>
+        <dd>
+          <span>{{ combattant.nomCombattant }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.combattant.prenomCombattant">Prenom Combattant</span></dt>
+        <dd>
+          <span>{{ combattant.prenomCombattant }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.combattant.dateNaisCombattant">Date Nais Combattant</span></dt>
+        <dd>
+          <span>{{ combattant.dateNaisCombattant | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.combattant.lieuNaisCombattant">Lieu Nais Combattant</span></dt>
+        <dd>
+          <span>{{ combattant.lieuNaisCombattant }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.combattant.photoCombattant">Photo Combattant</span></dt>
+        <dd>
+          <div *ngIf="combattant.photoCombattant">
+            <a (click)="openFile(combattant.photoCombattant, combattant.photoCombattantContentType)">
+              <img
+                [src]="'data:' + combattant.photoCombattantContentType + ';base64,' + combattant.photoCombattant"
+                style="max-width: 100%"
+                alt="combattant image"
+              />
+            </a>
+            {{ combattant.photoCombattantContentType }}, {{ byteSize(combattant.photoCombattant) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.combattant.club">Club</span></dt>
+        <dd>
+          <div *ngIf="combattant.club">
+            <a [routerLink]="['/club', combattant.club?.id, 'view']">{{ combattant.club?.nomClub }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/combattant', combattant.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

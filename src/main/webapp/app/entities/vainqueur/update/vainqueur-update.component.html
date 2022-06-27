@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-vainqueur-heading"
+        data-cy="VainqueurCreateUpdateHeading"
+        jhiTranslate="projetCommunaleApp.vainqueur.home.createOrEditLabel"
+      >
+        Create or edit a Vainqueur
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.vainqueur.prix" for="field_prix">Prix</label>
+          <input type="number" class="form-control" name="prix" id="field_prix" data-cy="prix" formControlName="prix" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.vainqueur.competition" for="field_competition">Competition</label>
+          <select class="form-control" id="field_competition" data-cy="competition" name="competition" formControlName="competition">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                competitionOption.id === editForm.get('competition')!.value?.id ? editForm.get('competition')!.value : competitionOption
+              "
+              *ngFor="let competitionOption of competitionsSharedCollection; trackBy: trackCompetitionById"
+            >
+              {{ competitionOption.discipline }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.vainqueur.combattant" for="field_combattant">Combattant</label>
+          <select class="form-control" id="field_combattant" data-cy="combattant" name="combattant" formControlName="combattant">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                combattantOption.id === editForm.get('combattant')!.value?.id ? editForm.get('combattant')!.value : combattantOption
+              "
+              *ngFor="let combattantOption of combattantsSharedCollection; trackBy: trackCombattantById"
+            >
+              {{ combattantOption.nomCombattant }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

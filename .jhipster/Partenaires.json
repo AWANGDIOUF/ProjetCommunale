@@ -1,0 +1,49 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627115314",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "partenaires",
+  "fields": [
+    {
+      "fieldName": "nomPartenaire",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailPartenaire",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telPartenaire",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Partenaires",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomEntrepreneur",
+      "otherEntityName": "entrepreneur",
+      "otherEntityRelationshipName": "partenaires",
+      "ownerSide": true,
+      "relationshipName": "entrepreneur",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "nomEleveur",
+      "otherEntityName": "eleveur",
+      "otherEntityRelationshipName": "partenaires",
+      "ownerSide": true,
+      "relationshipName": "eleveur",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

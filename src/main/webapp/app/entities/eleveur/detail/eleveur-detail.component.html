@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="eleveur">
+      <h2 data-cy="eleveurDetailsHeading"><span jhiTranslate="projetCommunaleApp.eleveur.detail.title">Eleveur</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ eleveur.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.eleveur.nomEleveur">Nom Eleveur</span></dt>
+        <dd>
+          <span>{{ eleveur.nomEleveur }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.eleveur.prenomEleveur">Prenom Eleveur</span></dt>
+        <dd>
+          <span>{{ eleveur.prenomEleveur }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.eleveur.telEleveur">Tel Eleveur</span></dt>
+        <dd>
+          <span>{{ eleveur.telEleveur }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.eleveur.tel1Eleveur">Tel 1 Eleveur</span></dt>
+        <dd>
+          <span>{{ eleveur.tel1Eleveur }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.eleveur.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ eleveur.adresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.eleveur.nomElevage">Nom Elevage</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'projetCommunaleApp.TypeElevage.' + eleveur.nomElevage }}">{{ eleveur.nomElevage }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.eleveur.descriptionActivite">Description Activite</span></dt>
+        <dd>
+          <span>{{ eleveur.descriptionActivite }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.eleveur.quartier">Quartier</span></dt>
+        <dd>
+          <div *ngIf="eleveur.quartier">
+            <a [routerLink]="['/quartier', eleveur.quartier?.id, 'view']">{{ eleveur.quartier?.nomQuartier }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/eleveur', eleveur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

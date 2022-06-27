@@ -1,0 +1,32 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627114714",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "lien_tutoriel",
+  "fields": [
+    {
+      "fieldName": "descriptionLien",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lien",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LienTutoriel",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nom",
+      "otherEntityName": "ensegnant",
+      "otherEntityRelationshipName": "lienTutoriel",
+      "relationshipName": "enseignant",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

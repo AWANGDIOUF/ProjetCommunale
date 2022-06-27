@@ -1,0 +1,57 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627115014",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "entrepreneur",
+  "fields": [
+    {
+      "fieldName": "nomEntrepreneur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "prenomEntrepreneur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailEntrepreneur",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "telEntrepreneur",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "required"]
+    },
+    {
+      "fieldName": "tel1Entrepreneur",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Entrepreneur",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "typeEntre",
+      "otherEntityName": "entreprenariat",
+      "otherEntityRelationshipName": "entrepreneur",
+      "ownerSide": true,
+      "relationshipName": "entreprenariat",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "typeActivite",
+      "otherEntityName": "domaineActivite",
+      "otherEntityRelationshipName": "entrepreneur",
+      "ownerSide": true,
+      "relationshipName": "domaineActivite",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

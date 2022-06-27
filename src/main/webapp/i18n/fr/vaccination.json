@@ -1,0 +1,31 @@
+{
+  "projetCommunaleApp": {
+    "vaccination": {
+      "home": {
+        "title": "Vaccinations",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Vaccination",
+        "createOrEditLabel": "Créer ou éditer un Vaccination",
+        "notFound": "Aucun Vaccination trouvé"
+      },
+      "created": "Un nouveau Vaccination a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Vaccination avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Vaccination avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Vaccination {{ id }} ?"
+      },
+      "detail": {
+        "title": "Vaccination"
+      },
+      "id": "ID",
+      "date": "Date",
+      "description": "Description",
+      "duree": "Duree",
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "typeVaccin": "Type Vaccin",
+      "annonce": "Annonce",
+      "cible": "Cible"
+    }
+  }
+}

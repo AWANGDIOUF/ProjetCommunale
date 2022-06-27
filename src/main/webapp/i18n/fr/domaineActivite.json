@@ -1,0 +1,26 @@
+{
+  "projetCommunaleApp": {
+    "domaineActivite": {
+      "home": {
+        "title": "DomaineActivites",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Domaine Activite",
+        "createOrEditLabel": "Créer ou éditer un Domaine Activite",
+        "notFound": "Aucun Domaine Activite trouvé"
+      },
+      "created": "Un nouveau Domaine Activite a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Domaine Activite avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Domaine Activite avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Domaine Activite {{ id }} ?"
+      },
+      "detail": {
+        "title": "Domaine Activite"
+      },
+      "id": "ID",
+      "typeActivite": "Type Activite",
+      "description": "Description",
+      "dateActivite": "Date Activite"
+    }
+  }
+}

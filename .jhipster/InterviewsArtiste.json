@@ -1,0 +1,38 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627113914",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "interviews_artiste",
+  "fields": [
+    {
+      "fieldName": "titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "lien",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "InterviewsArtiste",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomArtiste",
+      "otherEntityName": "artiste",
+      "otherEntityRelationshipName": "interviewsArtiste",
+      "ownerSide": true,
+      "relationshipName": "artiste",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

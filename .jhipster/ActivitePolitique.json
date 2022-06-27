@@ -1,0 +1,33 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627113414",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "activite_politique",
+  "fields": [
+    {
+      "fieldName": "titreActivite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descriptionActivite",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "dateDebut",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateFin",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ActivitePolitique",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

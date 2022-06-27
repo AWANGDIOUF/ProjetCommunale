@@ -1,0 +1,129 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-evenement-heading"
+        data-cy="EvenementCreateUpdateHeading"
+        jhiTranslate="projetCommunaleApp.evenement.home.createOrEditLabel"
+      >
+        Create or edit a Evenement
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.evenement.nomEvenement" for="field_nomEvenement">Nom Evenement</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nomEvenement"
+            id="field_nomEvenement"
+            data-cy="nomEvenement"
+            formControlName="nomEvenement"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.evenement.libelle" for="field_libelle">Libelle</label>
+          <input type="text" class="form-control" name="libelle" id="field_libelle" data-cy="libelle" formControlName="libelle" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.evenement.action" for="field_action">Action</label>
+          <input type="text" class="form-control" name="action" id="field_action" data-cy="action" formControlName="action" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.evenement.decision" for="field_decision">Decision</label>
+          <input type="text" class="form-control" name="decision" id="field_decision" data-cy="decision" formControlName="decision" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.evenement.delaiInstruction" for="field_delaiInstruction"
+            >Delai Instruction</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_delaiInstruction"
+              data-cy="delaiInstruction"
+              type="datetime-local"
+              class="form-control"
+              name="delaiInstruction"
+              formControlName="delaiInstruction"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.evenement.delaiInscription" for="field_delaiInscription"
+            >Delai Inscription</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_delaiInscription"
+              data-cy="delaiInscription"
+              type="datetime-local"
+              class="form-control"
+              name="delaiInscription"
+              formControlName="delaiInscription"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.evenement.delaiValidation" for="field_delaiValidation"
+            >Delai Validation</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_delaiValidation"
+              data-cy="delaiValidation"
+              type="datetime-local"
+              class="form-control"
+              name="delaiValidation"
+              formControlName="delaiValidation"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="projetCommunaleApp.evenement.artiste" for="field_artiste">Artiste</label>
+          <select class="form-control" id="field_artiste" data-cy="artiste" name="artiste" formControlName="artiste">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="artisteOption.id === editForm.get('artiste')!.value?.id ? editForm.get('artiste')!.value : artisteOption"
+              *ngFor="let artisteOption of artistesCollection; trackBy: trackArtisteById"
+            >
+              {{ artisteOption.nomArtiste }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

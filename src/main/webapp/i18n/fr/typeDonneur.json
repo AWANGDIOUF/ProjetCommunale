@@ -1,0 +1,12 @@
+{
+  "projetCommunaleApp": {
+    "TypeDonneur": {
+      "null": "",
+      "ONG": "ONG",
+      "ETAT": "ETAT",
+      "ENTREPRISE": "ENTREPRISE",
+      "ASSOCIATION": "ASSOCIATION",
+      "AUTRES": "AUTRES"
+    }
+  }
+}

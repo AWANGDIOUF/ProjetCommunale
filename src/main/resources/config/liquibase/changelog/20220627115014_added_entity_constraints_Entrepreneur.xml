@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Entrepreneur.
+    -->
+    <changeSet id="20220627115014-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="entreprenariat_id"
+                                 baseTableName="entrepreneur"
+                                 constraintName="fk_entrepreneur__entreprenariat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="entreprenariat"/>
+
+        <addForeignKeyConstraint baseColumnNames="domaine_activite_id"
+                                 baseTableName="entrepreneur"
+                                 constraintName="fk_entrepreneur__domaine_activite_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="domaine_activite"/>
+    </changeSet>
+</databaseChangeLog>

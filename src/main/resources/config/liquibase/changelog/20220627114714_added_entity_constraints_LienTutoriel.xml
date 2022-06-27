@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity LienTutoriel.
+    -->
+    <changeSet id="20220627114714-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="enseignant_id"
+                                 baseTableName="lien_tutoriel"
+                                 constraintName="fk_lien_tutoriel__enseignant_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ensegnant"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,35 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627112514",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "vainqueur",
+  "fields": [
+    {
+      "fieldName": "prix",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Vainqueur",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "discipline",
+      "otherEntityName": "competition",
+      "otherEntityRelationshipName": "vainqueur",
+      "relationshipName": "competition",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomCombattant",
+      "otherEntityName": "combattant",
+      "otherEntityRelationshipName": "vainqueur",
+      "relationshipName": "combattant",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

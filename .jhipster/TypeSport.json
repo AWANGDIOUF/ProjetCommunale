@@ -1,0 +1,21 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627111714",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "type_sport",
+  "fields": [
+    {
+      "fieldName": "sport",
+      "fieldType": "Sport",
+      "fieldValues": "FOOTBALL,BASKET,ARTS_MARTIAUX"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TypeSport",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

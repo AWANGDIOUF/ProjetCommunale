@@ -1,0 +1,38 @@
+{
+  "applications": ["projetCommunale"],
+  "changelogDate": "20220627115614",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "calendrier_evenement",
+  "fields": [
+    {
+      "fieldName": "nomEve",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "but",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "objectif",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lieu",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CalendrierEvenement",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

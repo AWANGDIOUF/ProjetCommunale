@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sensibiisationInternet">
+      <h2 data-cy="sensibiisationInternetDetailsHeading">
+        <span jhiTranslate="projetCommunaleApp.sensibiisationInternet.detail.title">Sensibiisation Internet</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ sensibiisationInternet.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.sensibiisationInternet.theme">Theme</span></dt>
+        <dd>
+          <span>{{ sensibiisationInternet.theme | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.sensibiisationInternet.interdiction">Interdiction</span></dt>
+        <dd>
+          <span>{{ sensibiisationInternet.interdiction }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.sensibiisationInternet.bonnePratique">Bonne Pratique</span></dt>
+        <dd>
+          <span>{{ sensibiisationInternet.bonnePratique }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/sensibiisation-internet', sensibiisationInternet.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

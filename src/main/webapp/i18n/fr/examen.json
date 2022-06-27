@@ -1,0 +1,11 @@
+{
+  "projetCommunaleApp": {
+    "Examen": {
+      "null": "",
+      "CFEE": "CFEE",
+      "BFEM": "BFEM",
+      "BAC": "BAC",
+      "AUTRE": "AUTRE"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="donneur">
+      <h2 data-cy="donneurDetailsHeading"><span jhiTranslate="projetCommunaleApp.donneur.detail.title">Donneur</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ donneur.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.donneur.typeDonneur">Type Donneur</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'projetCommunaleApp.TypeDonneur.' + donneur.typeDonneur }}">{{ donneur.typeDonneur }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.donneur.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ donneur.prenom }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.donneur.nom">Nom</span></dt>
+        <dd>
+          <span>{{ donneur.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.donneur.email">Email</span></dt>
+        <dd>
+          <span>{{ donneur.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.donneur.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ donneur.adresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.donneur.tel1">Tel 1</span></dt>
+        <dd>
+          <span>{{ donneur.tel1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.donneur.ville">Ville</span></dt>
+        <dd>
+          <span>{{ donneur.ville }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.donneur.description">Description</span></dt>
+        <dd>
+          <span>{{ donneur.description }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/donneur', donneur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

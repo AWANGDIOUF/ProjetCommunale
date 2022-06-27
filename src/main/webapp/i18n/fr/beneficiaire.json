@@ -1,0 +1,29 @@
+{
+  "projetCommunaleApp": {
+    "beneficiaire": {
+      "home": {
+        "title": "Beneficiaires",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Beneficiaire",
+        "createOrEditLabel": "Créer ou éditer un Beneficiaire",
+        "notFound": "Aucun Beneficiaire trouvé"
+      },
+      "created": "Un nouveau Beneficiaire a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Beneficiaire avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Beneficiaire avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Beneficiaire {{ id }} ?"
+      },
+      "detail": {
+        "title": "Beneficiaire"
+      },
+      "id": "ID",
+      "typeBeneficiaire": "Type Beneficiaire",
+      "autreBeneficiaire": "Autre Beneficiaire",
+      "description": "Description",
+      "justification": "Justification",
+      "annonce": "Annonce",
+      "quartier": "Quartier"
+    }
+  }
+}

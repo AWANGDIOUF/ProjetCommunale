@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="etablissement">
+      <h2 data-cy="etablissementDetailsHeading"><span jhiTranslate="projetCommunaleApp.etablissement.detail.title">Etablissement</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ etablissement.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.etablissement.nomEtat">Nom Etat</span></dt>
+        <dd>
+          <span>{{ etablissement.nomEtat }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.etablissement.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ etablissement.dateCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.etablissement.description">Description</span></dt>
+        <dd>
+          <span>{{ etablissement.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.etablissement.logo">Logo</span></dt>
+        <dd>
+          <div *ngIf="etablissement.logo">
+            <a (click)="openFile(etablissement.logo, etablissement.logoContentType)">
+              <img
+                [src]="'data:' + etablissement.logoContentType + ';base64,' + etablissement.logo"
+                style="max-width: 100%"
+                alt="etablissement image"
+              />
+            </a>
+            {{ etablissement.logoContentType }}, {{ byteSize(etablissement.logo) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="projetCommunaleApp.etablissement.quartier">Quartier</span></dt>
+        <dd>
+          <div *ngIf="etablissement.quartier">
+            <a [routerLink]="['/quartier', etablissement.quartier?.id, 'view']">{{ etablissement.quartier?.nomQuartier }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/etablissement', etablissement.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
