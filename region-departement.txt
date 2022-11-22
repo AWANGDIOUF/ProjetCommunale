@@ -1,0 +1,79 @@
+region Region required ,
+    autreRegion String ,
+    departementDakar DAKAR ,
+departementDiourbel DIOURBEL ,
+departementFatick FATICK ,
+departementKaffrine KAFFRINE ,
+departementKaolack KAOLACK , 
+departementKedougou KEDOUGOU ,
+departementKolda KOLDA ,
+departementLouga LOUGA ,
+departementMatam MATAM ,
+departementSaint SAINTLOUIS,
+departementSedhiou SEDHIOU ,
+departementTambacounda TAMBACOUNDA,
+departementThis THIES ,
+departementZiguinchor ZIGINCHOR ,
+autredepartementDakar String,
+autredepartementDiourbel String,
+autredepartementFatick String,
+autredepartementKaffrine String,
+autredepartementKaolack String, 
+autredepartementKedougou String,
+autredepartementKolda String,
+autredepartementLouga String,
+autredepartementMatam String,
+autredepartementSaint String
+autredepartementSedhiou String,
+autredepartementTambacounda String
+autredepartementThis String ,
+autredepartementZiguinchor String ,
+    commune String required ,
+    ia String required
+}
+enum Region{
+DAKAR, DIOURBEL, FATICK, KAFFRINE, KAOLACK, KEDOUGOU, KOLDA,
+LOUGA, MATAM, SAINT_LOUIS, SEDHIOU, TAMBACOUNDA, THIES, ZIGINCHOR, AUTRE
+}
+enum DAKAR {
+DAKAR, GUEDIAWAYE, PIKINE, RUFISQUE, AUTRE
+}
+enum DIOURBEL {
+BAMBAEY, DIOURBEL, MBACKE, AUTRE
+}
+enum FATICK {
+FATICK, FOUNDIOUGNE, GOSSAS, AUTRE
+}
+enum KAFFRINE {
+BIRKILANE, KAFFRINE, KOUNGHEUR, MALEM_HODAR, AUTRE
+}
+enum KAOLACK {
+GUINGUINEO, KAOLOACK, NIORO, AUTRE
+}
+enum KEDOUGOU{
+KEDOUGOU, SALAMATA, SARAYA, AUTRE
+}
+enum KOLDA {
+KOLDA, MEDINA_YORO_FOULAH, VELINGARA, AUTRE
+}
+enum LOUGA {
+KEBEMERE, LINGUERE, LOUGA, AUTRE
+}
+enum MATAM {
+KANELKANEL, MATAM, RANEROU_FERLO, AUTRE 
+}
+enum SAINTLOUIS {
+DAGANA, PODOR ,SAINT_LOUIS, AUTRE
+}
+enum SEDHIOU {
+BOUNKILING, GOUDOMP, SEDHIOU, AUTRE 
+}
+enum TAMBACOUNDA {
+BAKEL, GOUDIRY, KOUMPENTOUM, TAMBACOUNDA, AUTRE 
+}
+enum THIES {
+MBOUR, THIES, TIVAOUANE, AUTRE
+}
+enum ZIGINCHOR {
+BIGNONA, OUSSOUYE, ZICHUINCHOR, AUTRE
+}
