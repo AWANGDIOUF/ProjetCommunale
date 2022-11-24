@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="beneficiaire">
+      <h2 data-cy="beneficiaireDetailsHeading"><span jhiTranslate="projetCommunalApp.beneficiaire.detail.title">Beneficiaire</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ beneficiaire.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.beneficiaire.typeBenefiaire">Type Benefiaire</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'projetCommunalApp.TypeBeneficiaire.' + beneficiaire.typeBenefiaire }}">{{
+            beneficiaire.typeBenefiaire
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.beneficiaire.typePersoMoral">Type Perso Moral</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'projetCommunalApp.TypeMoral.' + beneficiaire.typePersoMoral }}">{{ beneficiaire.typePersoMoral }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.beneficiaire.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ beneficiaire.prenom }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.beneficiaire.nom">Nom</span></dt>
+        <dd>
+          <span>{{ beneficiaire.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.beneficiaire.cin">Cin</span></dt>
+        <dd>
+          <span>{{ beneficiaire.cin }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.beneficiaire.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ beneficiaire.adresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.beneficiaire.tel1">Tel 1</span></dt>
+        <dd>
+          <span>{{ beneficiaire.tel1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.beneficiaire.autretel1">Autretel 1</span></dt>
+        <dd>
+          <span>{{ beneficiaire.autretel1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.beneficiaire.emailAssociation">Email Association</span></dt>
+        <dd>
+          <span>{{ beneficiaire.emailAssociation }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.beneficiaire.nomPresident">Nom President</span></dt>
+        <dd>
+          <span>{{ beneficiaire.nomPresident }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.beneficiaire.description">Description</span></dt>
+        <dd>
+          <span>{{ beneficiaire.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.beneficiaire.annonce">Annonce</span></dt>
+        <dd>
+          <div *ngIf="beneficiaire.annonce">
+            <a [routerLink]="['/annonce', beneficiaire.annonce?.id, 'view']">{{ beneficiaire.annonce?.titre }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/beneficiaire', beneficiaire.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

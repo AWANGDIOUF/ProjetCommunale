@@ -1,16 +1,12 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627112414",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "competition",
+  "name": "Competition",
   "fields": [
     {
-      "fieldName": "dateCompetition",
+      "fieldName": "date",
       "fieldType": "Instant"
     },
     {
-      "fieldName": "lieuCompetition",
+      "fieldName": "lieu",
       "fieldType": "String"
     },
     {
@@ -19,25 +15,30 @@
       "fieldValues": "TAEKWONDO,KARATE,BOXE"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Competition",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
+      "relationshipType": "many-to-one",
       "otherEntityName": "vainqueur",
       "otherEntityRelationshipName": "competition",
-      "relationshipName": "vainqueur",
-      "relationshipType": "one-to-many"
+      "relationshipName": "vainqueur"
     },
     {
-      "otherEntityField": "nomClub",
+      "relationshipType": "many-to-many",
       "otherEntityName": "club",
       "otherEntityRelationshipName": "competition",
       "relationshipName": "club",
-      "relationshipType": "many-to-one"
+      "otherEntityField": "nomClub",
+      "ownerSide": true
     }
   ],
-  "service": "no"
+  "entityTableName": "competition",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302111232"
 }

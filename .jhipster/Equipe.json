@@ -1,9 +1,5 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627111614",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "equipe",
+  "name": "Equipe",
   "fields": [
     {
       "fieldName": "nomEquipe",
@@ -19,45 +15,51 @@
       "fieldTypeBlobContent": "image"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Equipe",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
-      "otherEntityField": "sport",
+      "relationshipType": "one-to-one",
       "otherEntityName": "typeSport",
       "otherEntityRelationshipName": "equipe",
-      "ownerSide": true,
       "relationshipName": "typeSport",
-      "relationshipType": "one-to-one"
+      "otherEntityField": "sport",
+      "ownerSide": true
     },
     {
+      "relationshipType": "many-to-one",
       "otherEntityName": "joueur",
       "otherEntityRelationshipName": "equipe",
-      "relationshipName": "joueur",
-      "relationshipType": "one-to-many"
+      "relationshipName": "joueur"
     },
     {
-      "otherEntityName": "match",
-      "otherEntityRelationshipName": "equipe",
-      "relationshipName": "match",
-      "relationshipType": "one-to-many"
-    },
-    {
-      "otherEntityName": "archiveSport",
-      "otherEntityRelationshipName": "equipe",
-      "relationshipName": "archve",
-      "relationshipType": "one-to-many"
-    },
-    {
-      "otherEntityField": "nomQuartier",
+      "relationshipType": "one-to-many",
       "otherEntityName": "quartier",
       "otherEntityRelationshipName": "equipe",
       "relationshipName": "quartier",
-      "relationshipType": "many-to-one"
+      "otherEntityField": "nomQuartier"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "match",
+      "otherEntityRelationshipName": "equipe",
+      "relationshipName": "match",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "archiveSport",
+      "otherEntityRelationshipName": "equipe",
+      "relationshipName": "archve",
+      "ownerSide": false
     }
   ],
-  "service": "no"
+  "entityTableName": "equipe",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302110432"
 }

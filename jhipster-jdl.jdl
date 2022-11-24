@@ -1,0 +1,207 @@
+application {
+  config {
+    baseName ProjetCommunal,
+    applicationType monolith,
+    packageName sn.projet.communal,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    devDatabaseType mysql,
+    databaseType sql,
+    clientFramework angularX,
+    buildTool maven,
+    nativeLanguage fr,
+    serverPort 9000,
+  }
+  entities *
+}
+
+
+entity Equipe {
+	nomEquipe String
+    dateCreation LocalDate
+    logo ImageBlob
+}
+entity  TypeSport {
+ sport Sport
+}
+enum Sport {
+FOOTBALL, BASKET, ARTS_MARTIAUX
+}
+
+entity Club {
+	nomClub String
+    dateCreation LocalDate
+    logo ImageBlob
+    discipline DisciplineClub
+}
+enum DisciplineClub {
+TAEKWONDO, KARATE, BOXE
+}
+entity Joueur {
+    nom String
+    prenom String
+    dateNais LocalDate
+    lieuNais String
+    poste Poste
+    photo ImageBlob
+}
+
+entity Combattant {
+    nom String
+    prenom String
+    dateNais LocalDate
+    lieuNais String
+    photo ImageBlob
+}
+enum Poste {
+ATTAQUANT, DEFENSEUR, MILIEU_TERRAIN, GARDIEN
+}
+
+entity Quartier {
+nomQuartier String 
+}
+entity ArchiveSport {
+annee LocalDate
+}
+entity Match {
+date Instant
+lieu String
+score Integer
+}
+entity Competition {
+date Instant
+lieu String
+ discipline DisciplineClub
+}
+entity Vainqueur {
+prix Double
+}
+relationship ManyToOne {
+Quartier{equipe} to Equipe{Quartier(nomQuartier)}
+Quartier{club} to Club{Quartier(nomQuartier)}
+Equipe{joueur} to Joueur{Equipe(nomEquipe)}
+Club{conmbattant} to Combattant{Club(nomClub)}
+Competition{vainqueur} to Vainqueur{Competition(discipline)}
+Combattant{combattant} to Vainqueur{Combattant(nom)}
+}
+relationship OneToOne{
+Equipe{TypeSport(sport)} to TypeSport{Equipe(nomEquipe)}
+Club{TypeSport(sport)} to TypeSport{Club(nomClub)}
+}
+relationship ManyToMany{
+Match{Equipe(nomEquipe)} to Equipe{match}
+Competition{Club(nomClub)}to Club{competition}
+ArchiveSport{Equipe(nomEquipe)} to Equipe{archve}
+ArchiveSport{Club(nomClub)} to Club{archve}
+}
+
+enum TypeDon{
+Ravitament,
+Fourniture,
+Argent
+}
+
+entity Don {
+typeDon TypeDon
+montant Long
+description String
+}
+
+entity Donneur {
+typeDonneur TypeDonneur
+prenom String
+nom String required
+email String unique
+adresse String
+tel1 String unique
+ville String
+description TextBlob
+}
+
+enum TypeDonneur{
+ONG
+}
+
+enum TypeMoral{
+Groupement,
+Association,
+GIE,
+ASC
+}
+
+enum TypeBeneficiaire{
+PersonneMoral,
+PersonnePhysique
+}
+
+entity Beneficiaire {
+typeBenefiaire TypeBeneficiaire
+typePersoMoral TypeMoral
+prenom String
+nom String
+cin String unique
+adresse String
+tel1 String required unique
+autretel1 String unique
+emailAssociation String unique
+nomPresident String
+description TextBlob
+}
+
+entity Annonce {
+titre String
+description TextBlob
+date LocalDate
+lieu String
+}
+
+relationship ManyToOne {
+Don{Annonce(titre)}  to Annonce {Don(typeDon)}
+Beneficiaire{Annonce(titre)} to Annonce{Beneficiaire(typeBenefiaire)}
+Donneur to Don{Donneur(typeDonneur)}
+Quartier to Beneficiaire{Quartier(nomQuartier)}
+}
+
+entity Vaccination {
+date LocalDate
+description TextBlob
+duree Boolean
+dateDebut LocalDate
+dateFin LocalDate
+}
+
+entity TypeVaccin {
+libelle String
+}
+
+enum CibleVacc{
+Enfant,
+Adulte,
+PersonneAgee
+}
+
+entity Cible {
+cible CibleVacc
+age Long
+}
+
+entity DonSang {
+organisateur String
+description TextBlob
+}
+
+relationship ManyToOne {
+DonSang to Annonce{DonSang(organiteur)}
+Vaccination to Annonce{Vaccination}
+DonSang to Donneur
+Cible to Vaccination
+}
+
+relationship OneToOne {
+TypeVaccin to  Vaccination 
+}
+
+
+// Set pagination options
+paginate * with pagination
+

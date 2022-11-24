@@ -1,0 +1,11 @@
+{
+  "projetCommunalApp": {
+    "TypeMoral": {
+      "null": "",
+      "Groupement": "Groupement",
+      "Association": "Association",
+      "GIE": "GIE",
+      "ASC": "ASC"
+    }
+  }
+}

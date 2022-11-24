@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "projet-communale": {
+    "projet-communal": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -33,7 +33,15 @@
               "src/main/webapp/content",
               "src/main/webapp/favicon.ico",
               "src/main/webapp/manifest.webapp",
-              "src/main/webapp/robots.txt"
+              "src/main/webapp/robots.txt",
+              {
+                "glob": "*.{js,css,html,png}",
+                "input": "./node_modules/swagger-ui-dist",
+                "output": "swagger-ui",
+                "ignore": ["**/index.html"]
+              },
+              { "glob": "axios.min.js", "input": "./node_modules/axios/dist", "output": "swagger-ui" },
+              { "glob": "**/*", "input": "src/main/webapp/swagger-ui/", "output": "swagger-ui" }
             ],
             "styles": ["src/main/webapp/content/scss/vendor.scss", "src/main/webapp/content/scss/global.scss"],
             "scripts": []
@@ -76,15 +84,16 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "projet-communale:build:development",
+            "browserTarget": "projet-communal:build:development",
+            "proxyConfig": "./webpack/proxy.conf.js",
             "port": 4200
           },
           "configurations": {
             "production": {
-              "browserTarget": "projet-communale:build:production"
+              "browserTarget": "projet-communal:build:production"
             },
             "development": {
-              "browserTarget": "projet-communale:build:development"
+              "browserTarget": "projet-communal:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,13 +107,8 @@
       }
     }
   },
-  "defaultProject": "projet-communale",
+  "defaultProject": "projet-communal",
   "cli": {
-    "cache": {
-      "enabled": true,
-      "path": "./target/angular/",
-      "environment": "all"
-    },
     "packageManager": "npm"
   }
 }

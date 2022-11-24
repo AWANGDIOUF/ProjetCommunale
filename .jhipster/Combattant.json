@@ -1,51 +1,51 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627112014",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "combattant",
+  "name": "Combattant",
   "fields": [
     {
-      "fieldName": "nomCombattant",
+      "fieldName": "nom",
       "fieldType": "String"
     },
     {
-      "fieldName": "prenomCombattant",
+      "fieldName": "prenom",
       "fieldType": "String"
     },
     {
-      "fieldName": "dateNaisCombattant",
+      "fieldName": "dateNais",
       "fieldType": "LocalDate"
     },
     {
-      "fieldName": "lieuNaisCombattant",
+      "fieldName": "lieuNais",
       "fieldType": "String"
     },
     {
-      "fieldName": "photoCombattant",
+      "fieldName": "photo",
       "fieldType": "byte[]",
       "fieldTypeBlobContent": "image"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Combattant",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
+      "relationshipType": "many-to-one",
       "otherEntityName": "vainqueur",
       "otherEntityRelationshipName": "combattant",
-      "relationshipName": "vainqueur",
-      "relationshipType": "one-to-many"
+      "relationshipName": "combattant"
     },
     {
-      "otherEntityField": "nomClub",
+      "relationshipType": "one-to-many",
       "otherEntityName": "club",
-      "otherEntityRelationshipName": "combattant",
+      "otherEntityRelationshipName": "conmbattant",
       "relationshipName": "club",
-      "relationshipType": "many-to-one"
+      "otherEntityField": "nomClub"
     }
   ],
-  "service": "no"
+  "entityTableName": "combattant",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302110832"
 }

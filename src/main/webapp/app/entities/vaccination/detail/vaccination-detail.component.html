@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="vaccination">
+      <h2 data-cy="vaccinationDetailsHeading"><span jhiTranslate="projetCommunalApp.vaccination.detail.title">Vaccination</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ vaccination.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.vaccination.date">Date</span></dt>
+        <dd>
+          <span>{{ vaccination.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.vaccination.description">Description</span></dt>
+        <dd>
+          <span>{{ vaccination.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.vaccination.duree">Duree</span></dt>
+        <dd>
+          <span>{{ vaccination.duree }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.vaccination.dateDebut">Date Debut</span></dt>
+        <dd>
+          <span>{{ vaccination.dateDebut | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.vaccination.dateFin">Date Fin</span></dt>
+        <dd>
+          <span>{{ vaccination.dateFin | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.vaccination.annonce">Annonce</span></dt>
+        <dd>
+          <div *ngIf="vaccination.annonce">
+            <a [routerLink]="['/annonce', vaccination.annonce?.id, 'view']">{{ vaccination.annonce?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/vaccination', vaccination.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

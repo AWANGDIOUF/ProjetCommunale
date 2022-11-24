@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="quartier">
+      <h2 data-cy="quartierDetailsHeading"><span jhiTranslate="projetCommunalApp.quartier.detail.title">Quartier</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ quartier.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.quartier.nomQuartier">Nom Quartier</span></dt>
+        <dd>
+          <span>{{ quartier.nomQuartier }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.quartier.equipe">Equipe</span></dt>
+        <dd>
+          <div *ngIf="quartier.equipe">
+            <a [routerLink]="['/equipe', quartier.equipe?.id, 'view']">{{ quartier.equipe?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.quartier.club">Club</span></dt>
+        <dd>
+          <div *ngIf="quartier.club">
+            <a [routerLink]="['/club', quartier.club?.id, 'view']">{{ quartier.club?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.quartier.beneficiaire">Beneficiaire</span></dt>
+        <dd>
+          <div *ngIf="quartier.beneficiaire">
+            <a [routerLink]="['/beneficiaire', quartier.beneficiaire?.id, 'view']">{{ quartier.beneficiaire?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/quartier', quartier.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

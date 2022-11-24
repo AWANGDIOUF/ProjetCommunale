@@ -1,36 +1,37 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627112314",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "jhi_match",
+  "name": "Match",
   "fields": [
     {
-      "fieldName": "dateMatch",
+      "fieldName": "date",
       "fieldType": "Instant"
     },
     {
-      "fieldName": "lieuMatch",
+      "fieldName": "lieu",
       "fieldType": "String"
     },
     {
-      "fieldName": "scoreMatch",
+      "fieldName": "score",
       "fieldType": "Integer"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Match",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
-      "otherEntityField": "nomEquipe",
+      "relationshipType": "many-to-many",
       "otherEntityName": "equipe",
       "otherEntityRelationshipName": "match",
       "relationshipName": "equipe",
-      "relationshipType": "many-to-one"
+      "otherEntityField": "nomEquipe",
+      "ownerSide": true
     }
   ],
-  "service": "no"
+  "entityTableName": "jhi_match",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302111132"
 }

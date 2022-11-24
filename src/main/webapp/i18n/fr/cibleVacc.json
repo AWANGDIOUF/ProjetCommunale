@@ -1,0 +1,10 @@
+{
+  "projetCommunalApp": {
+    "CibleVacc": {
+      "null": "",
+      "Enfant": "Enfant",
+      "Adulte": "Adulte",
+      "PersonneAgee": "PersonneAgee"
+    }
+  }
+}

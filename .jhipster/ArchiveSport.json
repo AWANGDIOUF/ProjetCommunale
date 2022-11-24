@@ -1,35 +1,37 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627112214",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "archive_sport",
+  "name": "ArchiveSport",
   "fields": [
     {
       "fieldName": "annee",
       "fieldType": "LocalDate"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "ArchiveSport",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
-      "otherEntityField": "nomEquipe",
+      "relationshipType": "many-to-many",
       "otherEntityName": "equipe",
       "otherEntityRelationshipName": "archve",
       "relationshipName": "equipe",
-      "relationshipType": "many-to-one"
+      "otherEntityField": "nomEquipe",
+      "ownerSide": true
     },
     {
-      "otherEntityField": "nomClub",
+      "relationshipType": "many-to-many",
       "otherEntityName": "club",
       "otherEntityRelationshipName": "archve",
       "relationshipName": "club",
-      "relationshipType": "many-to-one"
+      "otherEntityField": "nomClub",
+      "ownerSide": true
     }
   ],
-  "service": "no"
+  "entityTableName": "archive_sport",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302111032"
 }

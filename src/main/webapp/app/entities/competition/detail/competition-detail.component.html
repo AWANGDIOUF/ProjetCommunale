@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="competition">
+      <h2 data-cy="competitionDetailsHeading"><span jhiTranslate="projetCommunalApp.competition.detail.title">Competition</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ competition.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.competition.date">Date</span></dt>
+        <dd>
+          <span>{{ competition.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.competition.lieu">Lieu</span></dt>
+        <dd>
+          <span>{{ competition.lieu }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.competition.discipline">Discipline</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'projetCommunalApp.DisciplineClub.' + competition.discipline }}">{{ competition.discipline }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.competition.vainqueur">Vainqueur</span></dt>
+        <dd>
+          <div *ngIf="competition.vainqueur">
+            <a [routerLink]="['/vainqueur', competition.vainqueur?.id, 'view']">{{ competition.vainqueur?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.competition.club">Club</span></dt>
+        <dd>
+          <span *ngFor="let club of competition.clubs; let last = last">
+            <a [routerLink]="['/club', club?.id, 'view']">{{ club.nomClub }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/competition', competition.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

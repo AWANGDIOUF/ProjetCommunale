@@ -1,0 +1,171 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-beneficiaire-heading"
+        data-cy="BeneficiaireCreateUpdateHeading"
+        jhiTranslate="projetCommunalApp.beneficiaire.home.createOrEditLabel"
+      >
+        Create or edit a Beneficiaire
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.beneficiaire.typeBenefiaire" for="field_typeBenefiaire"
+            >Type Benefiaire</label
+          >
+          <select
+            class="form-control"
+            name="typeBenefiaire"
+            formControlName="typeBenefiaire"
+            id="field_typeBenefiaire"
+            data-cy="typeBenefiaire"
+          >
+            <option [ngValue]="null">{{ 'projetCommunalApp.TypeBeneficiaire.null' | translate }}</option>
+            <option value="PersonneMoral">{{ 'projetCommunalApp.TypeBeneficiaire.PersonneMoral' | translate }}</option>
+            <option value="PersonnePhysique">{{ 'projetCommunalApp.TypeBeneficiaire.PersonnePhysique' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.beneficiaire.typePersoMoral" for="field_typePersoMoral"
+            >Type Perso Moral</label
+          >
+          <select
+            class="form-control"
+            name="typePersoMoral"
+            formControlName="typePersoMoral"
+            id="field_typePersoMoral"
+            data-cy="typePersoMoral"
+          >
+            <option [ngValue]="null">{{ 'projetCommunalApp.TypeMoral.null' | translate }}</option>
+            <option value="Groupement">{{ 'projetCommunalApp.TypeMoral.Groupement' | translate }}</option>
+            <option value="Association">{{ 'projetCommunalApp.TypeMoral.Association' | translate }}</option>
+            <option value="GIE">{{ 'projetCommunalApp.TypeMoral.GIE' | translate }}</option>
+            <option value="ASC">{{ 'projetCommunalApp.TypeMoral.ASC' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.beneficiaire.prenom" for="field_prenom">Prenom</label>
+          <input type="text" class="form-control" name="prenom" id="field_prenom" data-cy="prenom" formControlName="prenom" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.beneficiaire.nom" for="field_nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="field_nom" data-cy="nom" formControlName="nom" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.beneficiaire.cin" for="field_cin">Cin</label>
+          <input type="text" class="form-control" name="cin" id="field_cin" data-cy="cin" formControlName="cin" />
+          <div *ngIf="editForm.get('cin')!.invalid && (editForm.get('cin')!.dirty || editForm.get('cin')!.touched)"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.beneficiaire.adresse" for="field_adresse">Adresse</label>
+          <input type="text" class="form-control" name="adresse" id="field_adresse" data-cy="adresse" formControlName="adresse" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.beneficiaire.tel1" for="field_tel1">Tel 1</label>
+          <input type="text" class="form-control" name="tel1" id="field_tel1" data-cy="tel1" formControlName="tel1" />
+          <div *ngIf="editForm.get('tel1')!.invalid && (editForm.get('tel1')!.dirty || editForm.get('tel1')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('tel1')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.beneficiaire.autretel1" for="field_autretel1">Autretel 1</label>
+          <input type="text" class="form-control" name="autretel1" id="field_autretel1" data-cy="autretel1" formControlName="autretel1" />
+          <div *ngIf="editForm.get('autretel1')!.invalid && (editForm.get('autretel1')!.dirty || editForm.get('autretel1')!.touched)"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.beneficiaire.emailAssociation" for="field_emailAssociation"
+            >Email Association</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="emailAssociation"
+            id="field_emailAssociation"
+            data-cy="emailAssociation"
+            formControlName="emailAssociation"
+          />
+          <div
+            *ngIf="
+              editForm.get('emailAssociation')!.invalid &&
+              (editForm.get('emailAssociation')!.dirty || editForm.get('emailAssociation')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.beneficiaire.nomPresident" for="field_nomPresident"
+            >Nom President</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nomPresident"
+            id="field_nomPresident"
+            data-cy="nomPresident"
+            formControlName="nomPresident"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.beneficiaire.description" for="field_description"
+            >Description</label
+          >
+          <textarea
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.beneficiaire.annonce" for="field_annonce">Annonce</label>
+          <select class="form-control" id="field_annonce" data-cy="annonce" name="annonce" formControlName="annonce">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="annonceOption.id === editForm.get('annonce')!.value?.id ? editForm.get('annonce')!.value : annonceOption"
+              *ngFor="let annonceOption of annoncesSharedCollection; trackBy: trackAnnonceById"
+            >
+              {{ annonceOption.titre }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

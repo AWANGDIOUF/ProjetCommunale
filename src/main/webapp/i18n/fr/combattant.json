@@ -1,0 +1,30 @@
+{
+  "projetCommunalApp": {
+    "combattant": {
+      "home": {
+        "title": "Combattants",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Combattant",
+        "createOrEditLabel": "Créer ou éditer un Combattant",
+        "notFound": "Aucun Combattant trouvé"
+      },
+      "created": "Un nouveau Combattant a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Combattant avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Combattant avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Combattant {{ id }} ?"
+      },
+      "detail": {
+        "title": "Combattant"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "dateNais": "Date Nais",
+      "lieuNais": "Lieu Nais",
+      "photo": "Photo",
+      "combattant": "Combattant",
+      "club": "Club"
+    }
+  }
+}

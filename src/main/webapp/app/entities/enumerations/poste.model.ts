@@ -1,0 +1,9 @@
+export enum Poste {
+  ATTAQUANT = 'ATTAQUANT',
+
+  DEFENSEUR = 'DEFENSEUR',
+
+  MILIEU_TERRAIN = 'MILIEU_TERRAIN',
+
+  GARDIEN = 'GARDIEN',
+}

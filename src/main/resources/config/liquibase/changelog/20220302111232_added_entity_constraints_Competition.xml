@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Competition.
+    -->
+    <changeSet id="20220302111232-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="vainqueur_id"
+                                 baseTableName="competition"
+                                 constraintName="fk_competition__vainqueur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vainqueur"/>
+
+        <addForeignKeyConstraint baseColumnNames="competition_id"
+                                 baseTableName="rel_competition__club"
+                                 constraintName="fk_rel_competition__club__competition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="competition"/>
+
+        <addForeignKeyConstraint baseColumnNames="club_id"
+                                 baseTableName="rel_competition__club"
+                                 constraintName="fk_rel_competition__club__club_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="club"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,24 +1,28 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627113114",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "type_vaccin",
+  "name": "TypeVaccin",
   "fields": [
     {
       "fieldName": "libelle",
       "fieldType": "String"
-    },
-    {
-      "fieldName": "objectif",
-      "fieldType": "LocalDate"
     }
   ],
-  "fluentMethods": true,
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "vaccination",
+      "otherEntityRelationshipName": "typeVaccin",
+      "relationshipName": "vaccination",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "type_vaccin",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
   "jpaMetamodelFiltering": false,
-  "name": "TypeVaccin",
-  "pagination": "no",
+  "fluentMethods": true,
   "readOnly": false,
-  "relationships": [],
-  "service": "no"
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302111932"
 }

@@ -1,9 +1,5 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627113014",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "vaccination",
+  "name": "Vaccination",
   "fields": [
     {
       "fieldName": "date",
@@ -27,33 +23,35 @@
       "fieldType": "LocalDate"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Vaccination",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
-      "otherEntityField": "libelle",
-      "otherEntityName": "typeVaccin",
-      "otherEntityRelationshipName": "vaccination",
-      "ownerSide": true,
-      "relationshipName": "typeVaccin",
-      "relationshipType": "one-to-one"
-    },
-    {
+      "relationshipType": "many-to-one",
       "otherEntityName": "annonce",
       "otherEntityRelationshipName": "vaccination",
-      "relationshipName": "annonce",
-      "relationshipType": "many-to-one"
+      "relationshipName": "annonce"
     },
     {
-      "otherEntityField": "cible",
+      "relationshipType": "one-to-one",
+      "otherEntityName": "typeVaccin",
+      "otherEntityRelationshipName": "vaccination",
+      "relationshipName": "typeVaccin",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-many",
       "otherEntityName": "cible",
       "otherEntityRelationshipName": "vaccination",
-      "relationshipName": "cible",
-      "relationshipType": "one-to-many"
+      "relationshipName": "cible"
     }
   ],
-  "service": "no"
+  "entityTableName": "vaccination",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302111832"
 }

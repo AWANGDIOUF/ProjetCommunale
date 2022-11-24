@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity ArchiveSport.
+    -->
+    <changeSet id="20220302111032-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="archive_sport_id"
+                                 baseTableName="rel_archive_sport__equipe"
+                                 constraintName="fk_rel_archive_sport__equipe__archive_sport_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="archive_sport"/>
+
+        <addForeignKeyConstraint baseColumnNames="equipe_id"
+                                 baseTableName="rel_archive_sport__equipe"
+                                 constraintName="fk_rel_archive_sport__equipe__equipe_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="equipe"/>
+
+        <addForeignKeyConstraint baseColumnNames="archive_sport_id"
+                                 baseTableName="rel_archive_sport__club"
+                                 constraintName="fk_rel_archive_sport__club__archive_sport_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="archive_sport"/>
+
+        <addForeignKeyConstraint baseColumnNames="club_id"
+                                 baseTableName="rel_archive_sport__club"
+                                 constraintName="fk_rel_archive_sport__club__club_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="club"/>
+    </changeSet>
+</databaseChangeLog>

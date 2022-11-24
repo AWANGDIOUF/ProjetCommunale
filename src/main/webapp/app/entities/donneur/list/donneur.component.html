@@ -1,0 +1,132 @@
+<div>
+  <h2 id="page-heading" data-cy="DonneurHeading">
+    <span jhiTranslate="projetCommunalApp.donneur.home.title">Donneurs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="projetCommunalApp.donneur.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-donneur"
+        [routerLink]="['/donneur/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="projetCommunalApp.donneur.home.createLabel"> Create a new Donneur </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="donneurs?.length === 0">
+    <span jhiTranslate="projetCommunalApp.donneur.home.notFound">No donneurs found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="donneurs && donneurs.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="typeDonneur">
+            <span jhiTranslate="projetCommunalApp.donneur.typeDonneur">Type Donneur</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prenom">
+            <span jhiTranslate="projetCommunalApp.donneur.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nom"><span jhiTranslate="projetCommunalApp.donneur.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="email">
+            <span jhiTranslate="projetCommunalApp.donneur.email">Email</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="adresse">
+            <span jhiTranslate="projetCommunalApp.donneur.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tel1">
+            <span jhiTranslate="projetCommunalApp.donneur.tel1">Tel 1</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ville">
+            <span jhiTranslate="projetCommunalApp.donneur.ville">Ville</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <span jhiTranslate="projetCommunalApp.donneur.description">Description</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="don.id">
+            <span jhiTranslate="projetCommunalApp.donneur.don">Don</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let donneur of donneurs; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/donneur', donneur.id, 'view']">{{ donneur.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'projetCommunalApp.TypeDonneur.' + donneur.typeDonneur }}">{{ donneur.typeDonneur }}</td>
+          <td>{{ donneur.prenom }}</td>
+          <td>{{ donneur.nom }}</td>
+          <td>{{ donneur.email }}</td>
+          <td>{{ donneur.adresse }}</td>
+          <td>{{ donneur.tel1 }}</td>
+          <td>{{ donneur.ville }}</td>
+          <td>{{ donneur.description }}</td>
+          <td>
+            <div *ngIf="donneur.don">
+              <a [routerLink]="['/don', donneur.don?.id, 'view']">{{ donneur.don?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/donneur', donneur.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/donneur', donneur.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(donneur)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="donneurs && donneurs.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

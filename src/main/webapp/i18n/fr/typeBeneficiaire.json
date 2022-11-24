@@ -1,0 +1,9 @@
+{
+  "projetCommunalApp": {
+    "TypeBeneficiaire": {
+      "null": "",
+      "PersonneMoral": "PersonneMoral",
+      "PersonnePhysique": "PersonnePhysique"
+    }
+  }
+}

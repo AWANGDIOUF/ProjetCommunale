@@ -1,50 +1,50 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627111914",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "joueur",
+  "name": "Joueur",
   "fields": [
     {
-      "fieldName": "nomJoueur",
+      "fieldName": "nom",
       "fieldType": "String"
     },
     {
-      "fieldName": "prenomJoueur",
+      "fieldName": "prenom",
       "fieldType": "String"
     },
     {
-      "fieldName": "dateNaisJoueur",
+      "fieldName": "dateNais",
       "fieldType": "LocalDate"
     },
     {
-      "fieldName": "lieuNaisJoueur",
+      "fieldName": "lieuNais",
       "fieldType": "String"
     },
     {
-      "fieldName": "posteJoueur",
+      "fieldName": "poste",
       "fieldType": "Poste",
       "fieldValues": "ATTAQUANT,DEFENSEUR,MILIEU_TERRAIN,GARDIEN"
     },
     {
-      "fieldName": "photoJoueur",
+      "fieldName": "photo",
       "fieldType": "byte[]",
       "fieldTypeBlobContent": "image"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Joueur",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
-      "otherEntityField": "nomEquipe",
+      "relationshipType": "one-to-many",
       "otherEntityName": "equipe",
       "otherEntityRelationshipName": "joueur",
       "relationshipName": "equipe",
-      "relationshipType": "many-to-one"
+      "otherEntityField": "nomEquipe"
     }
   ],
-  "service": "no"
+  "entityTableName": "joueur",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302110732"
 }

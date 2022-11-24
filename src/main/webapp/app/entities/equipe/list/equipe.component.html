@@ -1,0 +1,117 @@
+<div>
+  <h2 id="page-heading" data-cy="EquipeHeading">
+    <span jhiTranslate="projetCommunalApp.equipe.home.title">Equipes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="projetCommunalApp.equipe.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-equipe"
+        [routerLink]="['/equipe/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="projetCommunalApp.equipe.home.createLabel"> Create a new Equipe </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="equipes?.length === 0">
+    <span jhiTranslate="projetCommunalApp.equipe.home.notFound">No equipes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="equipes && equipes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="nomEquipe">
+            <span jhiTranslate="projetCommunalApp.equipe.nomEquipe">Nom Equipe</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateCreation">
+            <span jhiTranslate="projetCommunalApp.equipe.dateCreation">Date Creation</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="logo">
+            <span jhiTranslate="projetCommunalApp.equipe.logo">Logo</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="typeSport.sport">
+            <span jhiTranslate="projetCommunalApp.equipe.typeSport">Type Sport</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="joueur.id">
+            <span jhiTranslate="projetCommunalApp.equipe.joueur">Joueur</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let equipe of equipes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/equipe', equipe.id, 'view']">{{ equipe.id }}</a>
+          </td>
+          <td>{{ equipe.nomEquipe }}</td>
+          <td>{{ equipe.dateCreation | formatMediumDate }}</td>
+          <td>
+            <a *ngIf="equipe.logo" (click)="openFile(equipe.logo, equipe.logoContentType)">
+              <img [src]="'data:' + equipe.logoContentType + ';base64,' + equipe.logo" style="max-height: 30px" alt="equipe image" />
+            </a>
+            <span *ngIf="equipe.logo">{{ equipe.logoContentType }}, {{ byteSize(equipe.logo) }}</span>
+          </td>
+          <td>
+            <div *ngIf="equipe.typeSport">
+              <a [routerLink]="['/type-sport', equipe.typeSport?.id, 'view']">{{ equipe.typeSport?.sport }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="equipe.joueur">
+              <a [routerLink]="['/joueur', equipe.joueur?.id, 'view']">{{ equipe.joueur?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/equipe', equipe.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/equipe', equipe.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(equipe)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="equipes && equipes.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="club">
+      <h2 data-cy="clubDetailsHeading"><span jhiTranslate="projetCommunalApp.club.detail.title">Club</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ club.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.club.nomClub">Nom Club</span></dt>
+        <dd>
+          <span>{{ club.nomClub }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.club.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ club.dateCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.club.logo">Logo</span></dt>
+        <dd>
+          <div *ngIf="club.logo">
+            <a (click)="openFile(club.logo, club.logoContentType)">
+              <img [src]="'data:' + club.logoContentType + ';base64,' + club.logo" style="max-width: 100%" alt="club image" />
+            </a>
+            {{ club.logoContentType }}, {{ byteSize(club.logo) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.club.discipline">Discipline</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'projetCommunalApp.DisciplineClub.' + club.discipline }}">{{ club.discipline }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.club.typeSport">Type Sport</span></dt>
+        <dd>
+          <div *ngIf="club.typeSport">
+            <a [routerLink]="['/type-sport', club.typeSport?.id, 'view']">{{ club.typeSport?.sport }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.club.conmbattant">Conmbattant</span></dt>
+        <dd>
+          <div *ngIf="club.conmbattant">
+            <a [routerLink]="['/combattant', club.conmbattant?.id, 'view']">{{ club.conmbattant?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/club', club.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

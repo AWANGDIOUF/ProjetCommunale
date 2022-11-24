@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="match">
+      <h2 data-cy="matchDetailsHeading"><span jhiTranslate="projetCommunalApp.match.detail.title">Match</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ match.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.match.date">Date</span></dt>
+        <dd>
+          <span>{{ match.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.match.lieu">Lieu</span></dt>
+        <dd>
+          <span>{{ match.lieu }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.match.score">Score</span></dt>
+        <dd>
+          <span>{{ match.score }}</span>
+        </dd>
+        <dt><span jhiTranslate="projetCommunalApp.match.equipe">Equipe</span></dt>
+        <dd>
+          <span *ngFor="let equipe of match.equipes; let last = last">
+            <a [routerLink]="['/equipe', equipe?.id, 'view']">{{ equipe.nomEquipe }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/match', match.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

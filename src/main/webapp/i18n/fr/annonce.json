@@ -1,0 +1,31 @@
+{
+  "projetCommunalApp": {
+    "annonce": {
+      "home": {
+        "title": "Annonces",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Annonce",
+        "createOrEditLabel": "Créer ou éditer un Annonce",
+        "notFound": "Aucun Annonce trouvé"
+      },
+      "created": "Un nouveau Annonce a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Annonce avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Annonce avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Annonce {{ id }} ?"
+      },
+      "detail": {
+        "title": "Annonce"
+      },
+      "id": "ID",
+      "titre": "Titre",
+      "description": "Description",
+      "date": "Date",
+      "lieu": "Lieu",
+      "don": "Don",
+      "beneficiaire": "Beneficiaire",
+      "donSang": "Don Sang",
+      "vaccination": "Vaccination"
+    }
+  }
+}

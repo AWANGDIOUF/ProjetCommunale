@@ -1,14 +1,10 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627112714",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "donneur",
+  "name": "Donneur",
   "fields": [
     {
       "fieldName": "typeDonneur",
       "fieldType": "TypeDonneur",
-      "fieldValues": "ONG,ETAT,ENTREPRISE,ASSOCIATION,AUTRES"
+      "fieldValues": "ONG"
     },
     {
       "fieldName": "prenom",
@@ -43,25 +39,28 @@
       "fieldTypeBlobContent": "text"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Donneur",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
+      "relationshipType": "many-to-one",
       "otherEntityName": "don",
       "otherEntityRelationshipName": "donneur",
-      "relationshipName": "don",
-      "relationshipType": "one-to-many"
+      "relationshipName": "don"
     },
     {
-      "otherEntityField": "organiteur",
+      "relationshipType": "one-to-many",
       "otherEntityName": "donSang",
       "otherEntityRelationshipName": "donneur",
-      "relationshipName": "donSang",
-      "relationshipType": "one-to-many"
+      "relationshipName": "donSang"
     }
   ],
-  "service": "no"
+  "entityTableName": "donneur",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302111532"
 }

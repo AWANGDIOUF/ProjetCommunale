@@ -1,9 +1,5 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627112614",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "don",
+  "name": "Don",
   "fields": [
     {
       "fieldName": "typeDon",
@@ -19,25 +15,30 @@
       "fieldType": "String"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Don",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
+      "relationshipType": "many-to-one",
       "otherEntityName": "annonce",
       "otherEntityRelationshipName": "don",
       "relationshipName": "annonce",
-      "relationshipType": "one-to-many"
+      "otherEntityField": "titre"
     },
     {
-      "otherEntityField": "typeDonneur",
+      "relationshipType": "one-to-many",
       "otherEntityName": "donneur",
       "otherEntityRelationshipName": "don",
       "relationshipName": "donneur",
-      "relationshipType": "many-to-one"
+      "otherEntityField": "typeDonneur"
     }
   ],
-  "service": "no"
+  "entityTableName": "don",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302111432"
 }

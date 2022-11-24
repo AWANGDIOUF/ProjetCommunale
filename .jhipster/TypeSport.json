@@ -1,9 +1,5 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627111714",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "type_sport",
+  "name": "TypeSport",
   "fields": [
     {
       "fieldName": "sport",
@@ -11,11 +7,32 @@
       "fieldValues": "FOOTBALL,BASKET,ARTS_MARTIAUX"
     }
   ],
-  "fluentMethods": true,
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "equipe",
+      "otherEntityRelationshipName": "typeSport",
+      "relationshipName": "equipe",
+      "otherEntityField": "nomEquipe",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "club",
+      "otherEntityRelationshipName": "typeSport",
+      "relationshipName": "club",
+      "otherEntityField": "nomClub",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "type_sport",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
   "jpaMetamodelFiltering": false,
-  "name": "TypeSport",
-  "pagination": "no",
+  "fluentMethods": true,
   "readOnly": false,
-  "relationships": [],
-  "service": "no"
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302110532"
 }

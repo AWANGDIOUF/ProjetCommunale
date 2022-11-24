@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-quartier-heading" data-cy="QuartierCreateUpdateHeading" jhiTranslate="projetCommunalApp.quartier.home.createOrEditLabel">
+        Create or edit a Quartier
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.quartier.nomQuartier" for="field_nomQuartier"
+            >Nom Quartier</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nomQuartier"
+            id="field_nomQuartier"
+            data-cy="nomQuartier"
+            formControlName="nomQuartier"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.quartier.equipe" for="field_equipe">Equipe</label>
+          <select class="form-control" id="field_equipe" data-cy="equipe" name="equipe" formControlName="equipe">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="equipeOption.id === editForm.get('equipe')!.value?.id ? editForm.get('equipe')!.value : equipeOption"
+              *ngFor="let equipeOption of equipesSharedCollection; trackBy: trackEquipeById"
+            >
+              {{ equipeOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.quartier.club" for="field_club">Club</label>
+          <select class="form-control" id="field_club" data-cy="club" name="club" formControlName="club">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="clubOption.id === editForm.get('club')!.value?.id ? editForm.get('club')!.value : clubOption"
+              *ngFor="let clubOption of clubsSharedCollection; trackBy: trackClubById"
+            >
+              {{ clubOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="projetCommunalApp.quartier.beneficiaire" for="field_beneficiaire"
+            >Beneficiaire</label
+          >
+          <select class="form-control" id="field_beneficiaire" data-cy="beneficiaire" name="beneficiaire" formControlName="beneficiaire">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                beneficiaireOption.id === editForm.get('beneficiaire')!.value?.id ? editForm.get('beneficiaire')!.value : beneficiaireOption
+              "
+              *ngFor="let beneficiaireOption of beneficiairesSharedCollection; trackBy: trackBeneficiaireById"
+            >
+              {{ beneficiaireOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

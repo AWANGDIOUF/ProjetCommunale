@@ -1,0 +1,27 @@
+{
+  "projetCommunalApp": {
+    "donSang": {
+      "home": {
+        "title": "DonSangs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Don Sang",
+        "createOrEditLabel": "Créer ou éditer un Don Sang",
+        "notFound": "Aucun Don Sang trouvé"
+      },
+      "created": "Un nouveau Don Sang a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Don Sang avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Don Sang avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Don Sang {{ id }} ?"
+      },
+      "detail": {
+        "title": "Don Sang"
+      },
+      "id": "ID",
+      "organisateur": "Organisateur",
+      "description": "Description",
+      "annonce": "Annonce",
+      "donneur": "Donneur"
+    }
+  }
+}

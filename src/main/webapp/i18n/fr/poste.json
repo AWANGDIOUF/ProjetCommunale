@@ -1,0 +1,11 @@
+{
+  "projetCommunalApp": {
+    "Poste": {
+      "null": "",
+      "ATTAQUANT": "ATTAQUANT",
+      "DEFENSEUR": "DEFENSEUR",
+      "MILIEU_TERRAIN": "MILIEU_TERRAIN",
+      "GARDIEN": "GARDIEN"
+    }
+  }
+}

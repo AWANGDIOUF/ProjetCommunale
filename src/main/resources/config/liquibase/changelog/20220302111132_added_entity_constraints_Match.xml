@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Match.
+    -->
+    <changeSet id="20220302111132-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="jhi_match_id"
+                                 baseTableName="rel_jhi_match__equipe"
+                                 constraintName="fk_rel_jhi_match__equipe__jhi_match_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_match"/>
+
+        <addForeignKeyConstraint baseColumnNames="equipe_id"
+                                 baseTableName="rel_jhi_match__equipe"
+                                 constraintName="fk_rel_jhi_match__equipe__equipe_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="equipe"/>
+    </changeSet>
+</databaseChangeLog>

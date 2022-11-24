@@ -1,0 +1,148 @@
+<div>
+  <h2 id="page-heading" data-cy="BeneficiaireHeading">
+    <span jhiTranslate="projetCommunalApp.beneficiaire.home.title">Beneficiaires</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="projetCommunalApp.beneficiaire.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-beneficiaire"
+        [routerLink]="['/beneficiaire/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="projetCommunalApp.beneficiaire.home.createLabel"> Create a new Beneficiaire </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="beneficiaires?.length === 0">
+    <span jhiTranslate="projetCommunalApp.beneficiaire.home.notFound">No beneficiaires found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="beneficiaires && beneficiaires.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="typeBenefiaire">
+            <span jhiTranslate="projetCommunalApp.beneficiaire.typeBenefiaire">Type Benefiaire</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="typePersoMoral">
+            <span jhiTranslate="projetCommunalApp.beneficiaire.typePersoMoral">Type Perso Moral</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prenom">
+            <span jhiTranslate="projetCommunalApp.beneficiaire.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nom">
+            <span jhiTranslate="projetCommunalApp.beneficiaire.nom">Nom</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cin">
+            <span jhiTranslate="projetCommunalApp.beneficiaire.cin">Cin</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="adresse">
+            <span jhiTranslate="projetCommunalApp.beneficiaire.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tel1">
+            <span jhiTranslate="projetCommunalApp.beneficiaire.tel1">Tel 1</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="autretel1">
+            <span jhiTranslate="projetCommunalApp.beneficiaire.autretel1">Autretel 1</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="emailAssociation">
+            <span jhiTranslate="projetCommunalApp.beneficiaire.emailAssociation">Email Association</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nomPresident">
+            <span jhiTranslate="projetCommunalApp.beneficiaire.nomPresident">Nom President</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <span jhiTranslate="projetCommunalApp.beneficiaire.description">Description</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="annonce.titre">
+            <span jhiTranslate="projetCommunalApp.beneficiaire.annonce">Annonce</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let beneficiaire of beneficiaires; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/beneficiaire', beneficiaire.id, 'view']">{{ beneficiaire.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'projetCommunalApp.TypeBeneficiaire.' + beneficiaire.typeBenefiaire }}">
+            {{ beneficiaire.typeBenefiaire }}
+          </td>
+          <td jhiTranslate="{{ 'projetCommunalApp.TypeMoral.' + beneficiaire.typePersoMoral }}">{{ beneficiaire.typePersoMoral }}</td>
+          <td>{{ beneficiaire.prenom }}</td>
+          <td>{{ beneficiaire.nom }}</td>
+          <td>{{ beneficiaire.cin }}</td>
+          <td>{{ beneficiaire.adresse }}</td>
+          <td>{{ beneficiaire.tel1 }}</td>
+          <td>{{ beneficiaire.autretel1 }}</td>
+          <td>{{ beneficiaire.emailAssociation }}</td>
+          <td>{{ beneficiaire.nomPresident }}</td>
+          <td>{{ beneficiaire.description }}</td>
+          <td>
+            <div *ngIf="beneficiaire.annonce">
+              <a [routerLink]="['/annonce', beneficiaire.annonce?.id, 'view']">{{ beneficiaire.annonce?.titre }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/beneficiaire', beneficiaire.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/beneficiaire', beneficiaire.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(beneficiaire)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="beneficiaires && beneficiaires.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

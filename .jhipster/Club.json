@@ -1,9 +1,5 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627111814",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "club",
+  "name": "Club",
   "fields": [
     {
       "fieldName": "nomClub",
@@ -24,45 +20,51 @@
       "fieldValues": "TAEKWONDO,KARATE,BOXE"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Club",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
-      "otherEntityField": "sport",
+      "relationshipType": "one-to-one",
       "otherEntityName": "typeSport",
       "otherEntityRelationshipName": "club",
-      "ownerSide": true,
       "relationshipName": "typeSport",
-      "relationshipType": "one-to-one"
+      "otherEntityField": "sport",
+      "ownerSide": true
     },
     {
+      "relationshipType": "many-to-one",
       "otherEntityName": "combattant",
       "otherEntityRelationshipName": "club",
-      "relationshipName": "combattant",
-      "relationshipType": "one-to-many"
+      "relationshipName": "conmbattant"
     },
     {
-      "otherEntityName": "competition",
-      "otherEntityRelationshipName": "club",
-      "relationshipName": "competition",
-      "relationshipType": "one-to-many"
-    },
-    {
-      "otherEntityName": "archiveSport",
-      "otherEntityRelationshipName": "club",
-      "relationshipName": "archve",
-      "relationshipType": "one-to-many"
-    },
-    {
-      "otherEntityField": "nomQuartier",
+      "relationshipType": "one-to-many",
       "otherEntityName": "quartier",
       "otherEntityRelationshipName": "club",
       "relationshipName": "quartier",
-      "relationshipType": "many-to-one"
+      "otherEntityField": "nomQuartier"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "competition",
+      "otherEntityRelationshipName": "club",
+      "relationshipName": "competition",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "archiveSport",
+      "otherEntityRelationshipName": "club",
+      "relationshipName": "archve",
+      "ownerSide": false
     }
   ],
-  "service": "no"
+  "entityTableName": "club",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302110632"
 }

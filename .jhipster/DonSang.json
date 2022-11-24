@@ -1,9 +1,5 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627113314",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "don_sang",
+  "name": "DonSang",
   "fields": [
     {
       "fieldName": "organisateur",
@@ -15,24 +11,28 @@
       "fieldTypeBlobContent": "text"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "DonSang",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
+      "relationshipType": "many-to-one",
       "otherEntityName": "annonce",
       "otherEntityRelationshipName": "donSang",
-      "relationshipName": "annonce",
-      "relationshipType": "many-to-one"
+      "relationshipName": "annonce"
     },
     {
+      "relationshipType": "many-to-one",
       "otherEntityName": "donneur",
       "otherEntityRelationshipName": "donSang",
-      "relationshipName": "donneur",
-      "relationshipType": "many-to-one"
+      "relationshipName": "donneur"
     }
   ],
-  "service": "no"
+  "entityTableName": "don_sang",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302112132"
 }

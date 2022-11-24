@@ -1,35 +1,35 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627112514",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "vainqueur",
+  "name": "Vainqueur",
   "fields": [
     {
       "fieldName": "prix",
       "fieldType": "Double"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Vainqueur",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
-      "otherEntityField": "discipline",
+      "relationshipType": "one-to-many",
       "otherEntityName": "competition",
       "otherEntityRelationshipName": "vainqueur",
       "relationshipName": "competition",
-      "relationshipType": "many-to-one"
+      "otherEntityField": "discipline"
     },
     {
-      "otherEntityField": "nomCombattant",
+      "relationshipType": "one-to-many",
       "otherEntityName": "combattant",
-      "otherEntityRelationshipName": "vainqueur",
+      "otherEntityRelationshipName": "combattant",
       "relationshipName": "combattant",
-      "relationshipType": "many-to-one"
+      "otherEntityField": "nom"
     }
   ],
-  "service": "no"
+  "entityTableName": "vainqueur",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302111332"
 }

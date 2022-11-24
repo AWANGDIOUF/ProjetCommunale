@@ -1,9 +1,5 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627113214",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "cible",
+  "name": "Cible",
   "fields": [
     {
       "fieldName": "cible",
@@ -15,18 +11,22 @@
       "fieldType": "Long"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Cible",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
+      "relationshipType": "many-to-one",
       "otherEntityName": "vaccination",
       "otherEntityRelationshipName": "cible",
-      "relationshipName": "vaccination",
-      "relationshipType": "many-to-one"
+      "relationshipName": "vaccination"
     }
   ],
-  "service": "no"
+  "entityTableName": "cible",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302112032"
 }

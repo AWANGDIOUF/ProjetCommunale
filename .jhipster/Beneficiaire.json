@@ -1,48 +1,82 @@
 {
-  "applications": ["projetCommunale"],
-  "changelogDate": "20220627112814",
-  "dto": "no",
-  "embedded": false,
-  "entityTableName": "beneficiaire",
+  "name": "Beneficiaire",
   "fields": [
     {
-      "fieldName": "typeBeneficiaire",
+      "fieldName": "typeBenefiaire",
       "fieldType": "TypeBeneficiaire",
-      "fieldValues": "Groupement,Association,GIE,ASC,AUTRE"
+      "fieldValues": "PersonneMoral,PersonnePhysique"
     },
     {
-      "fieldName": "autreBeneficiaire",
+      "fieldName": "typePersoMoral",
+      "fieldType": "TypeMoral",
+      "fieldValues": "Groupement,Association,GIE,ASC"
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cin",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "adresse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tel1",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "autretel1",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "emailAssociation",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "nomPresident",
       "fieldType": "String"
     },
     {
       "fieldName": "description",
       "fieldType": "byte[]",
       "fieldTypeBlobContent": "text"
-    },
-    {
-      "fieldName": "justification",
-      "fieldType": "String"
     }
   ],
-  "fluentMethods": true,
-  "jpaMetamodelFiltering": false,
-  "name": "Beneficiaire",
-  "pagination": "no",
-  "readOnly": false,
   "relationships": [
     {
+      "relationshipType": "many-to-one",
       "otherEntityName": "annonce",
       "otherEntityRelationshipName": "beneficiaire",
       "relationshipName": "annonce",
-      "relationshipType": "one-to-many"
+      "otherEntityField": "titre"
     },
     {
-      "otherEntityField": "nomQuartier",
+      "relationshipType": "one-to-many",
       "otherEntityName": "quartier",
       "otherEntityRelationshipName": "beneficiaire",
       "relationshipName": "quartier",
-      "relationshipType": "many-to-one"
+      "otherEntityField": "nomQuartier"
     }
   ],
-  "service": "no"
+  "entityTableName": "beneficiaire",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["ProjetCommunal"],
+  "changelogDate": "20220302111632"
 }
